@@ -12,14 +12,14 @@
         android:layout_margin="@dimen/register_phone">
         <EditText
             android:id="@+id/register_phoneNum"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:hint="@string/register_phone"
             android:inputType="phone"/>
         <Button
             android:id="@+id/register_securityCode"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/register_securityCode"/>
