@@ -1,8 +1,10 @@
-package com.water.nvgtor.watermanegement;
+package com.water.nvgtor.watermanegement.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Window;
+
+import com.water.nvgtor.watermanegement.R;
 
 /**
  * Created by dell on 2015/7/20.

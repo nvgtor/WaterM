@@ -1,4 +1,4 @@
-package com.water.nvgtor.watermanegement;
+package com.water.nvgtor.watermanegement.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.water.nvgtor.watermanegement.R;
 
 /**
  * Created by dell on 2015/7/20.

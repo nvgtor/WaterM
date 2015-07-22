@@ -1,4 +1,4 @@
-package com.water.nvgtor.watermanegement;
+package com.water.nvgtor.watermanegement.activity;
 
 import android.app.Activity;
 import android.content.Context;
@@ -15,6 +15,8 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.water.nvgtor.watermanegement.R;
 
 
 /**
@@ -57,7 +59,7 @@ public class LoginActivity extends Activity {
                 //设置默认是自动登录状态
                 auto_login.setChecked(true);
                 //跳转界面
-                Intent intent = new Intent(LoginActivity.this, WelcomeActivity.class);
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 LoginActivity.this.startActivity(intent);
             }
         }
@@ -68,20 +70,20 @@ public class LoginActivity extends Activity {
             public void onClick(View v) {
                 userNameValue = userName.getText().toString();
                 passwordValue = password.getText().toString();
-                if (userNameValue.length() > 0 && passwordValue.length() > 0){
+                if (userNameValue.length() > 0 && passwordValue.length() > 0) {
                     Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
                     //登录成功和记住密码框为选中才保存用户信息
-                    if (rem_pw.isChecked()){
+                    if (rem_pw.isChecked()) {
                         //记住用户名、密码
-                        SharedPreferences.Editor editor = sp .edit();
+                        SharedPreferences.Editor editor = sp.edit();
                         editor.putString("USER_NAME", userNameValue);
                         editor.putString("PASSWORD", passwordValue);
                         editor.commit();
                     }
                     //跳转界面
-                    Intent intent = new Intent(LoginActivity.this, WelcomeActivity.class);
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     LoginActivity.this.startActivity(intent);
-                }else {
+                } else {
                     Toast.makeText(LoginActivity.this, "用户名或密码错误，请重新登录", Toast.LENGTH_LONG).show();
                 }
             }
@@ -105,11 +107,11 @@ public class LoginActivity extends Activity {
         auto_login.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (auto_login.isChecked()){
-                    Log.d("autoLoginCheck","自动登录已选中");
+                if (auto_login.isChecked()) {
+                    Log.d("autoLoginCheck", "自动登录已选中");
                     sp.edit().putBoolean("AUTO_ISCHECK", true).commit();
-                }else{
-                    Log.d("autoLoginNoCheck","自动登录没有选中");
+                } else {
+                    Log.d("autoLoginNoCheck", "自动登录没有选中");
                     sp.edit().putBoolean("AUTO_ISCHECK", false).commit();
                 }
             }
@@ -132,6 +134,7 @@ public class LoginActivity extends Activity {
                 LoginActivity.this.startActivity(i);
             }
         });
+
     }
 }
 
