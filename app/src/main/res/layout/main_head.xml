@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              style="@style/title_bar_style">
+    <FrameLayout
+        android:id="@+id/top_head_container"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" >
+
+        <ImageView
+            android:id="@+id/top_head"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/bg_head_normal"
+            android:padding="2.0dip"
+            android:src="@drawable/default_round_head"
+            android:scaleType="fitXY"
+            android:visibility="visible"/>
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/top_left_count"
+        style="@style/top_update_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="-17.0dip"
+        android:layout_marginTop="5.0dip"
+        android:layout_toRightOf="@id/top_head_container"
+        android:background="@drawable/badge_titlebar"
+        android:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/top_more"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:scaleType="centerInside"
+        android:src="@drawable/btn_head_right"
+        android:visibility="visible"/>
+
+    <RelativeLayout
+        android:id="@+id/title_click_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:paddingLeft="13.0dip" >
+        <FrameLayout
+            android:id="@+id/title_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true" >
+        <TextView
+            android:id="@+id/title"
+            style="@style/title_text_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingBottom="1.5dip"
+            android:paddingLeft="6.0dip"
+            android:paddingRight="6.0dip"
+            android:text="水务管理"
+            android:visibility="visible" />
+        </FrameLayout>
+    </RelativeLayout>
+</RelativeLayout>
