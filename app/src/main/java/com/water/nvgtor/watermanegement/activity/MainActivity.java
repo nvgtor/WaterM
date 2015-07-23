@@ -17,7 +17,9 @@ import android.widget.Toast;
 import com.water.nvgtor.watermanegement.R;
 import com.water.nvgtor.watermanegement.adapter.NewsFragmentPagerAdapter;
 import com.water.nvgtor.watermanegement.bean.TabClassify;
+import com.water.nvgtor.watermanegement.fragment.CommunFragment;
 import com.water.nvgtor.watermanegement.fragment.FunFragment;
+import com.water.nvgtor.watermanegement.fragment.TaskFragment;
 import com.water.nvgtor.watermanegement.tool.BaseTools;
 import com.water.nvgtor.watermanegement.tool.Constants;
 import com.water.nvgtor.watermanegement.view.ColumnHorizontalScrollView;
@@ -62,7 +64,7 @@ public class MainActivity extends FragmentActivity {
     private void setChangeView(){
         initColumnData();
         initTabColumn();
-        //initFragment();
+        initFragment();
     }
 
     /** 获取column数据 */
@@ -145,13 +147,19 @@ public class MainActivity extends FragmentActivity {
      */
     private void initFragment() {
         int count =  tabClassifies.size();
-        for(int i = 0; i< count;i++){
+        /*for(int i = 0; i< count;i++){
             Bundle data = new Bundle();
             data.putString("text", tabClassifies.get(i).getTitle());
             FunFragment funfragment = new FunFragment();
             funfragment.setArguments(data);
             fragments.add(funfragment);
-        }
+        }*/
+        FunFragment funFragment = new FunFragment();
+        fragments.add(funFragment);
+        TaskFragment taskFragment = new TaskFragment();
+        fragments.add(taskFragment);
+        CommunFragment communFragment = new CommunFragment();
+        fragments.add(communFragment);
         NewsFragmentPagerAdapter mAdapetr = new NewsFragmentPagerAdapter(getSupportFragmentManager(), fragments);
         mViewPager.setAdapter(mAdapetr);
         mViewPager.setOnPageChangeListener(pageListener);
