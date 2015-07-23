@@ -5,13 +5,13 @@
               android:layout_height="match_parent">
     <com.water.nvgtor.watermanegement.view.MyGridView
         android:id="@+id/gridview"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:horizontalSpacing="0.0dip"
+        android:verticalSpacing="0.0dip"
         android:listSelector="@null"
         android:numColumns="3"
         android:scrollbars="none"
-        android:stretchMode="columnWidth"
-        android:verticalSpacing="0.0dip" />
+        android:stretchMode="columnWidth"/>
 
 </RelativeLayout>

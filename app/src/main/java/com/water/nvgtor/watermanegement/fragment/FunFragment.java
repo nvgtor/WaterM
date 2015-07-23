@@ -5,7 +5,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import com.water.nvgtor.watermanegement.R;
 import com.water.nvgtor.watermanegement.adapter.MyGridAdapter;
@@ -16,6 +18,12 @@ import com.water.nvgtor.watermanegement.adapter.MyGridAdapter;
 public class FunFragment extends Fragment {
     //String text;
     private GridView gridView;
+    public String[] img_text = {"待办巡检", "已办巡检", "事件上报", "临时任务",
+            "待办维修", "已办维修", "巡检地图", "再瞅一个", "瞅你咋地"};
+    public int[] imgs = {R.drawable.app_citycard, R.drawable.app_appcenter,
+            R.drawable.app_assign, R.drawable.app_aligame, R.drawable.app_coupon,
+            R.drawable.app_essential, R.drawable.app_exchange, R.drawable.app_facepay,
+            R.drawable.app_creditcard};
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -28,8 +36,14 @@ public class FunFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_function, null);
         gridView = (GridView)view.findViewById(R.id.gridview);
-        MyGridAdapter adapter = new MyGridAdapter(getActivity().getApplicationContext());
+        MyGridAdapter adapter = new MyGridAdapter(getActivity().getApplicationContext(), img_text, imgs);
         gridView.setAdapter(adapter);
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getActivity().getApplicationContext(), "you clicked " + position,Toast.LENGTH_SHORT).show();
+            }
+        });
         return view;
     }
 }

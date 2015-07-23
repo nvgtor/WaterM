@@ -17,16 +17,14 @@ import com.water.nvgtor.watermanegement.tool.BaseViewHolder;
  */
 public class MyGridAdapter extends BaseAdapter {
     private Context mContext;
-    public String[] img_text = {"待办巡检", "已办巡检", "事件上报", "临时任务",
-            "待办维修", "已办维修", "巡检地图", "再瞅一个", "瞅你咋地"};
-    public int[] imgs = {R.drawable.app_citycard, R.drawable.app_appcenter,
-            R.drawable.app_assign, R.drawable.app_aligame, R.drawable.app_coupon,
-            R.drawable.app_essential, R.drawable.app_exchange, R.drawable.app_facepay,
-            R.drawable.app_creditcard};
+    public String[] img_text;
+    public int[] imgs;
 
-    public MyGridAdapter(Context context) {
+    public MyGridAdapter(Context context, String[] text, int[] images) {
         super();
         this.mContext = context;
+        this.img_text = text;
+        this.imgs = images;
     }
 
     @Override

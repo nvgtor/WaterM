@@ -29,7 +29,7 @@ public class ForgetPassword_2_Activity extends Activity {
         btn_sure.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ForgetPassword_2_Activity.this, WelcomeActivity.class);
+                Intent intent = new Intent(ForgetPassword_2_Activity.this, MainActivity.class);
                 ForgetPassword_2_Activity.this.startActivity(intent);
                 finish();
             }
