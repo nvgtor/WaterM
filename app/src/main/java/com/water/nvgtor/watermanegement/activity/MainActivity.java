@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.Gravity;
+import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -23,6 +24,7 @@ import com.water.nvgtor.watermanegement.fragment.TaskFragment;
 import com.water.nvgtor.watermanegement.tool.BaseTools;
 import com.water.nvgtor.watermanegement.tool.Constants;
 import com.water.nvgtor.watermanegement.view.ColumnHorizontalScrollView;
+import com.water.nvgtor.watermanegement.view.SlidingMenu;
 
 import java.util.ArrayList;
 
@@ -35,6 +37,7 @@ public class MainActivity extends FragmentActivity {
     LinearLayout mRadioGroup_content;
     private RelativeLayout rl_column;
     private ViewPager mViewPager;
+    private SlidingMenu mLeftMenu;
     /** 滑动区分类列表 */
     private ArrayList<TabClassify> tabClassifies = new ArrayList<TabClassify>();
     /** 当前选中的栏目 */
@@ -49,16 +52,18 @@ public class MainActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.main);
+        setContentView(R.layout.activity_main);
         mScreenWidth = BaseTools.getWindowsWidth(this);
         mItemWidth = mScreenWidth / 3;
         initView();
     }
+
     private void initView(){
         mColumnHorizontalScrollView = (ColumnHorizontalScrollView)findViewById(R.id.mColumnHorizontalScrollView);
         mRadioGroup_content = (LinearLayout)findViewById(R.id.mRadioGroup_content);
         rl_column = (RelativeLayout)findViewById(R.id.rl_column);
         mViewPager = (ViewPager)findViewById(R.id.mViewPager);
+        mLeftMenu = (SlidingMenu)findViewById(R.id.id_menu);
         setChangeView();
     }
     private void setChangeView(){
@@ -81,8 +86,6 @@ public class MainActivity extends FragmentActivity {
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(mItemWidth, ViewGroup.LayoutParams.WRAP_CONTENT);
             params.leftMargin = 10;
             params.rightMargin = 10;
-            //LayoutInflater mInflater = getLayoutInflater();
-            //TextView localTextView = (TextView)mInflater.inflate(R.layout.column_radio_item, null);
             TextView localTextView = new TextView(this);
             localTextView.setTextAppearance(this, R.style.top_category_scroll_view_item_text);
             localTextView.setBackgroundResource(R.drawable.radio_buttong_bg);
@@ -185,4 +188,13 @@ public class MainActivity extends FragmentActivity {
             selectTab(position);
         }
     };
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
 }

@@ -31,7 +31,7 @@
         android:layout_marginTop="5.0dip"
         android:layout_toRightOf="@id/top_head_container"
         android:background="@drawable/badge_titlebar"
-        android:visibility="visible" />
+        android:visibility="gone" />
 
     <ImageView
         android:id="@+id/top_more"

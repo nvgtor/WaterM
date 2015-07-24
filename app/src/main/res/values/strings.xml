@@ -13,4 +13,5 @@
     <string name="register_backSecurityCode">请输入短信中的验证码</string>
     <string name="register_others">邮箱注册></string>
     <string name="forget_password_username">邮箱或手机号</string>
+    <string name="action_settings">Settings</string>
 </resources>
