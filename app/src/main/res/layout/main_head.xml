@@ -10,7 +10,7 @@
         android:paddingRight="10dp" >
 
         <ImageView
-            android:id="@+id/top_head"
+            android:id="@+id/top_head_userImg"
             android:layout_width="28dp"
             android:layout_height="28dp"
             android:layout_gravity="center_vertical"

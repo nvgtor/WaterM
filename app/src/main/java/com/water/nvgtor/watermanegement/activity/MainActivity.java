@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -37,7 +38,15 @@ public class MainActivity extends FragmentActivity {
     LinearLayout mRadioGroup_content;
     private RelativeLayout rl_column;
     private ViewPager mViewPager;
+
+    private ImageView userImg;
+
     private SlidingMenu mLeftMenu;
+    private RelativeLayout menu_item1;
+    private RelativeLayout menu_item2;
+    private RelativeLayout menu_item3;
+    private RelativeLayout menu_item4;
+
     /** 滑动区分类列表 */
     private ArrayList<TabClassify> tabClassifies = new ArrayList<TabClassify>();
     /** 当前选中的栏目 */
@@ -63,13 +72,64 @@ public class MainActivity extends FragmentActivity {
         mRadioGroup_content = (LinearLayout)findViewById(R.id.mRadioGroup_content);
         rl_column = (RelativeLayout)findViewById(R.id.rl_column);
         mViewPager = (ViewPager)findViewById(R.id.mViewPager);
+
+        userImg = (ImageView)findViewById(R.id.top_head_userImg);
+
         mLeftMenu = (SlidingMenu)findViewById(R.id.id_menu);
+        menu_item1 = (RelativeLayout)findViewById(R.id.menu_item1);
+        menu_item2 = (RelativeLayout)findViewById(R.id.menu_item2);
+        menu_item3 = (RelativeLayout)findViewById(R.id.menu_item3);
+        menu_item4 = (RelativeLayout)findViewById(R.id.menu_item4);
         setChangeView();
     }
     private void setChangeView(){
+        initTopHead();
+        initLeftMenu();
         initColumnData();
         initTabColumn();
         initFragment();
+    }
+
+    /**
+     * 初始化头部布局
+     */
+    private void initTopHead(){
+        userImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mLeftMenu.toggle();
+            }
+        });
+    }
+
+    /**
+     * 初始化左侧菜单
+     */
+    private void initLeftMenu(){
+        menu_item1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this,"you clicked user info", Toast.LENGTH_SHORT).show();
+            }
+        });
+        menu_item2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this,"you clicked item2", Toast.LENGTH_SHORT).show();
+            }
+        });
+        menu_item3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this,"you clicked item3", Toast.LENGTH_SHORT).show();
+            }
+        });
+        menu_item4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this,"you clicked item4", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     /** 获取column数据 */
@@ -110,7 +170,7 @@ public class MainActivity extends FragmentActivity {
                             mViewPager.setCurrentItem(i);
                         }
                     }
-                    Toast.makeText(getApplicationContext(), tabClassifies.get(v.getId()).getTitle(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getApplicationContext(), tabClassifies.get(v.getId()).getTitle(), Toast.LENGTH_SHORT).show();
                 }
             });
             mRadioGroup_content.addView(localTextView, i, params);
@@ -149,14 +209,7 @@ public class MainActivity extends FragmentActivity {
      * 初始化fragment
      */
     private void initFragment() {
-        int count =  tabClassifies.size();
-        /*for(int i = 0; i< count;i++){
-            Bundle data = new Bundle();
-            data.putString("text", tabClassifies.get(i).getTitle());
-            FunFragment funfragment = new FunFragment();
-            funfragment.setArguments(data);
-            fragments.add(funfragment);
-        }*/
+
         FunFragment funFragment = new FunFragment();
         fragments.add(funFragment);
         TaskFragment taskFragment = new TaskFragment();
