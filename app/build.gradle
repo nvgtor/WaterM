@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.water.nvgtor.watermanegement"
-        minSdkVersion 21
+        minSdkVersion 14
         targetSdkVersion 21
         versionCode 1
         versionName "1.0"
@@ -25,4 +25,5 @@ dependencies {
     compile files('E:/example/WaterManegement/libs/jsoup-1.7.2.jar')
     compile files('E:/example/WaterManegement/libs/universal-image-loader-1.9.2-SNAPSHOT-with-sources.jar')
     compile files('E:/example/WaterManegement/libraries/nineoldandroids-2.4.0.jar')
+    compile files('E:/example/WaterManegement/libraries/android-support-v7-appcompat.jar')
 }

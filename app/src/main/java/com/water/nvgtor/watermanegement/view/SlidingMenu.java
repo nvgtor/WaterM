@@ -211,6 +211,5 @@ public class SlidingMenu extends HorizontalScrollView
         ViewHelper.setScaleY(mContent, rightScale);
 
     }
-
 }
 

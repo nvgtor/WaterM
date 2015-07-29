@@ -1,5 +1,6 @@
 package com.water.nvgtor.watermanegement.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -10,6 +11,7 @@ import android.widget.GridView;
 import android.widget.Toast;
 
 import com.water.nvgtor.watermanegement.R;
+import com.water.nvgtor.watermanegement.activity.UnPatrolListActivity;
 import com.water.nvgtor.watermanegement.adapter.MyGridAdapter;
 
 /**
@@ -41,7 +43,13 @@ public class FunFragment extends Fragment {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getActivity().getApplicationContext(), "you clicked " + position,Toast.LENGTH_SHORT).show();
+                switch (position) {
+                    case 0:
+                        Intent intent = new Intent(getActivity(), UnPatrolListActivity.class);
+                        startActivity(intent);
+                        //overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
+                }
+                Toast.makeText(getActivity().getApplicationContext(), "you clicked " + position, Toast.LENGTH_SHORT).show();
             }
         });
         return view;

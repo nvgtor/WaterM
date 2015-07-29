@@ -32,7 +32,7 @@ import java.util.ArrayList;
 /**
  * Created by dell on 2015/7/22.
  */
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends FragmentActivity{
     /** 自定义HorizontalScrollView */
     private ColumnHorizontalScrollView mColumnHorizontalScrollView;
     LinearLayout mRadioGroup_content;
@@ -42,6 +42,7 @@ public class MainActivity extends FragmentActivity {
     private ImageView userImg;
 
     private SlidingMenu mLeftMenu;
+
     private RelativeLayout menu_item1;
     private RelativeLayout menu_item2;
     private RelativeLayout menu_item3;
@@ -80,6 +81,7 @@ public class MainActivity extends FragmentActivity {
         menu_item2 = (RelativeLayout)findViewById(R.id.menu_item2);
         menu_item3 = (RelativeLayout)findViewById(R.id.menu_item3);
         menu_item4 = (RelativeLayout)findViewById(R.id.menu_item4);
+
         setChangeView();
     }
     private void setChangeView(){
@@ -91,7 +93,7 @@ public class MainActivity extends FragmentActivity {
     }
 
     /**
-     * 初始化头部布局
+     * 初始化头部布局,这里是userImage可点击事件注册，打开与关闭菜单
      */
     private void initTopHead(){
         userImg.setOnClickListener(new View.OnClickListener() {
@@ -232,6 +234,7 @@ public class MainActivity extends FragmentActivity {
 
         @Override
         public void onPageScrolled(int arg0, float arg1, int arg2) {
+
         }
 
         @Override

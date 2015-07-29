@@ -83,6 +83,8 @@ public class LoginActivity extends Activity {
                     //跳转界面
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     LoginActivity.this.startActivity(intent);
+                    overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                    //overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
                 } else {
                     Toast.makeText(LoginActivity.this, "用户名或密码错误，请重新登录", Toast.LENGTH_LONG).show();
                 }

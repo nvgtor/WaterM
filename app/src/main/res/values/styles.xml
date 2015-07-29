@@ -22,7 +22,7 @@
         <item name="android:textColor">@color/title_text_color</item>
     </style>
     <style name="top_category_scroll_view_item_text">
-        <item name="android:textSize">16.0sp</item>
+        <item name="android:textSize">18.0sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:gravity">center</item>
     </style>
