@@ -104,7 +104,7 @@ public class UnPatrolListActivity extends Activity implements UnPatrolLoadListvi
         }, 2000);
     }
 
-    Handler handler_h = new Handler(){
+    Handler handler_h = new Handler() {
 
         @Override
         public void handleMessage(Message msg) {
