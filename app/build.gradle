@@ -26,4 +26,6 @@ dependencies {
     compile files('E:/example/WaterManegement/libs/universal-image-loader-1.9.2-SNAPSHOT-with-sources.jar')
     compile files('E:/example/WaterManegement/libraries/nineoldandroids-2.4.0.jar')
     compile files('E:/example/WaterManegement/libraries/android-support-v7-appcompat.jar')
+    compile files('E:/example/WaterManegement/libraries/BaiduLBS_Android.jar')
+    compile files('E:/example/WaterManegement/libraries/httpmime-4.1.2.jar')
 }

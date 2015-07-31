@@ -1,10 +1,13 @@
 package com.water.nvgtor.watermanegement.adapter;
 
 import android.content.Context;
+import android.os.Handler;
+import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.water.nvgtor.watermanegement.R;
@@ -18,6 +21,7 @@ import java.util.ArrayList;
 public class PatrolListAdapter extends BaseAdapter{
     ArrayList<UnPatrolEntity> patrolName_List;
     LayoutInflater inflater;
+    private Handler handler;
 
     public PatrolListAdapter(Context context, ArrayList<UnPatrolEntity> patrolName_List){
         this.patrolName_List = patrolName_List;
@@ -27,6 +31,11 @@ public class PatrolListAdapter extends BaseAdapter{
     public void onDataChange(ArrayList<UnPatrolEntity> patrolName_List){
         this.patrolName_List = patrolName_List;
         this.notifyDataSetChanged();
+    }
+
+    // handler回发是为了处理每个按钮的点击事件
+    public void setHandler(Handler handler){
+        this.handler = handler;
     }
 
     @Override
@@ -45,7 +54,7 @@ public class PatrolListAdapter extends BaseAdapter{
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         UnPatrolEntity entity = patrolName_List.get(position);
         ViewHolder holder;
         if (convertView == null){
@@ -59,11 +68,50 @@ public class PatrolListAdapter extends BaseAdapter{
         }
         holder.name_tv.setText(entity.getPatrolName());
         holder.des_tv.setText(entity.getPatrolDes());
+        holder.btn_accepted = (Button)convertView.findViewById(R.id.unPatrol_item_btn1);
+        holder.btn_delay = (Button)convertView.findViewById(R.id.unPatrol_item_btn2);
+        holder.btn_cancel = (Button)convertView.findViewById(R.id.unPatrol_item_btn3);
+        holder.btn_accepted.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(handler != null){
+                    Message msg = handler.obtainMessage();
+                    msg.what = v.getId();
+                    msg.arg1 = position;
+                    handler.sendMessage(msg);
+                }
+            }
+        });
+        holder.btn_delay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(handler != null){
+                    Message msg = handler.obtainMessage();
+                    msg.what = v.getId();
+                    msg.arg1 = position;
+                    handler.sendMessage(msg);
+                }
+            }
+        });
+        holder.btn_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(handler != null){
+                    Message msg = handler.obtainMessage();
+                    msg.what = v.getId();
+                    msg.arg1 = position;
+                    handler.sendMessage(msg);
+                }
+            }
+        });
         return convertView;
     }
 
     class ViewHolder{
         TextView name_tv;
         TextView des_tv;
+        Button btn_accepted;
+        Button btn_delay;
+        Button btn_cancel;
     }
 }
