@@ -1,12 +1,12 @@
 package com.water.nvgtor.watermanegement.activity;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -67,12 +67,20 @@ public class PatrolMapDetailActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        //requestWindowFeature(Window.FEATURE_NO_TITLE);
         // 在使用SDK各组件之前初始化context信息，传入ApplicationContext
         // 注意该方法要再setContentView方法之前实现
         super.onCreate(savedInstanceState);
         SDKInitializer.initialize(getApplicationContext());
         setContentView(R.layout.patrol_map_detail);
+
+        ActionBar actionBar = getActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setDisplayShowTitleEnabled(true);
+            actionBar.setDisplayShowHomeEnabled(false);
+            actionBar.setTitle("返回 ");
+        }
 
         this.context = this;
 
@@ -148,8 +156,6 @@ public class PatrolMapDetailActivity extends Activity {
                 mCurrentX = x;
             }
         });
-
-
     }
 
     private void initView(){
@@ -205,55 +211,7 @@ public class PatrolMapDetailActivity extends Activity {
         mMapView.onPause();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_map, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId())
-        {
-            case R.id.id_map_common:
-                mBaiduMap.setMapType(BaiduMap.MAP_TYPE_NORMAL);
-                break;
-
-            case R.id.id_map_site:
-                mBaiduMap.setMapType(BaiduMap.MAP_TYPE_SATELLITE);
-                break;
-
-            case R.id.id_map_traffic:
-                if (mBaiduMap.isTrafficEnabled())
-                {
-                    mBaiduMap.setTrafficEnabled(false);
-                    item.setTitle("实时交通(off)");
-                } else
-                {
-                    mBaiduMap.setTrafficEnabled(true);
-                    item.setTitle("实时交通(on)");
-                }
-                break;
-            case R.id.id_map_location:
-                centerToMyLocation();
-                break;
-            case R.id.id_map_mode_common:
-                mLocationMode = MyLocationConfiguration.LocationMode.NORMAL;
-                break;
-            case R.id.id_map_mode_following:
-                mLocationMode = MyLocationConfiguration.LocationMode.FOLLOWING;
-                break;
-            case R.id.id_map_mode_compass:
-                mLocationMode = MyLocationConfiguration.LocationMode.COMPASS;
-                break;
-            case R.id.id_add_overlay:
-                addOverlays(MapPointInfo.infos);
-                break;
-            default:
-                break;
-        }
-        return super.onOptionsItemSelected(item);
-    }
 
     private class MyLocationListener implements BDLocationListener {
 
@@ -302,8 +260,6 @@ public class PatrolMapDetailActivity extends Activity {
         mBaiduMap.animateMapStatus(msu);
     }
 
-
-
     /**
      * 添加覆盖物
      */
@@ -329,5 +285,57 @@ public class PatrolMapDetailActivity extends Activity {
         MapStatusUpdate msu = MapStatusUpdateFactory.newLatLng(latLng);
         mBaiduMap.setMapStatus(msu);
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_map, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId())
+        {
+            case android.R.id.home:
+                finish();
+            case R.id.id_map_common:
+                mBaiduMap.setMapType(BaiduMap.MAP_TYPE_NORMAL);
+                break;
+
+            case R.id.id_map_site:
+                mBaiduMap.setMapType(BaiduMap.MAP_TYPE_SATELLITE);
+                break;
+
+            case R.id.id_map_traffic:
+                if (mBaiduMap.isTrafficEnabled())
+                {
+                    mBaiduMap.setTrafficEnabled(false);
+                    item.setTitle("实时交通(off)");
+                } else
+                {
+                    mBaiduMap.setTrafficEnabled(true);
+                    item.setTitle("实时交通(on)");
+                }
+                break;
+            case R.id.id_map_location:
+                centerToMyLocation();
+                break;
+            case R.id.id_map_mode_common:
+                mLocationMode = MyLocationConfiguration.LocationMode.NORMAL;
+                break;
+            case R.id.id_map_mode_following:
+                mLocationMode = MyLocationConfiguration.LocationMode.FOLLOWING;
+                break;
+            case R.id.id_map_mode_compass:
+                mLocationMode = MyLocationConfiguration.LocationMode.COMPASS;
+                break;
+            case R.id.id_add_overlay:
+                addOverlays(MapPointInfo.infos);
+                break;
+            default:
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

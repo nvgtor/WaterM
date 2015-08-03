@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
+     <item
+        android:id="@+id/id_add_overlay"
+        android:showAsAction="ifRoom"
+        android:title="查看设备">
+    </item>
     <item
         android:id="@+id/id_map_common"
         android:showAsAction="never"
@@ -15,7 +19,7 @@
         android:title="实时交通(off)"/>
     <item
         android:id="@+id/id_map_location"
-        android:showAsAction="never"
+        android:showAsAction="ifRoom"
         android:title="我的位置"/>
     <item
         android:id="@+id/id_map_mode_common"
@@ -29,9 +33,5 @@
         android:id="@+id/id_map_mode_compass"
         android:showAsAction="never"
         android:title="罗盘模式"/>
-    <item
-        android:id="@+id/id_add_overlay"
-        android:showAsAction="never"
-        android:title="添加覆盖物">
-    </item>
+
 </menu>

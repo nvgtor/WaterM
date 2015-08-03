@@ -4,6 +4,8 @@
     <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
         <!-- Customize your theme here. -->
     </style>
+    <style name="MapTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+    </style>
 
     <style name="title_bar_style">
         <item name="android:background">@drawable/bg_titlebar</item>

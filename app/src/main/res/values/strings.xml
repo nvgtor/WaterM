@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">WaterManegement</string>
+    <string name="app_name">WaterM</string>
     <string name="login_title">waterM</string>
     <string name="login_username">手机号码</string>
     <string name="login_password">输入密码</string>
@@ -14,4 +14,5 @@
     <string name="register_others">邮箱注册></string>
     <string name="forget_password_username">邮箱或手机号</string>
     <string name="action_settings">Settings</string>
+    
 </resources>

@@ -101,7 +101,7 @@ public class UnPatrolListActivity extends Activity implements UnPatrolLoadListvi
                 //通知listview加载完毕
                 loadListview.loadComplete();
             }
-        }, 2000);
+        }, 1000);
     }
 
     Handler handler_h = new Handler() {

@@ -44,16 +44,35 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.WelcomeActivity"></activity>
-        <activity android:name=".activity.RegisterUsePhoneActivity"></activity>
-        <activity android:name=".activity.ForgetPasswordActivity"></activity>
-        <activity android:name=".activity.ForgetPassword_1_Activity"></activity>
-        <activity android:name=".activity.ForgetPassword_2_Activity"></activity>
-        <activity android:name=".activity.MainActivity"></activity>
-        <activity android:name=".activity.UnPatrolListActivity"></activity>
+        <activity android:name=".activity.WelcomeActivity">
+
+        </activity>
+        <activity android:name=".activity.RegisterUsePhoneActivity">
+
+        </activity>
+        <activity android:name=".activity.ForgetPasswordActivity">
+
+        </activity>
+        <activity android:name=".activity.ForgetPassword_1_Activity">
+
+        </activity>
+        <activity android:name=".activity.ForgetPassword_2_Activity">
+
+        </activity>
+        <activity android:name=".activity.MainActivity">
+
+        </activity>
+        <activity android:name=".activity.UnPatrolListActivity">
+
+        </activity>
 
         <activity
-            android:name=".activity.PatrolMapDetailActivity" >
+            android:name=".activity.PatrolMapDetailActivity"
+            android:theme="@style/MapTheme">
+        </activity>
+        <activity
+            android:name=".activity.PatrolTaskListActivity"
+            android:theme="@style/MapTheme">
         </activity>
 
         <meta-data

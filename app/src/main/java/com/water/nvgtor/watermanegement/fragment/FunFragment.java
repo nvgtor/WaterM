@@ -20,8 +20,8 @@ import com.water.nvgtor.watermanegement.adapter.MyGridAdapter;
 public class FunFragment extends Fragment {
     //String text;
     private GridView gridView;
-    public String[] img_text = {"待办巡检", "已办巡检", "事件上报", "临时任务",
-            "待办维修", "已办维修", "巡检地图", "再瞅一个", "瞅你咋地"};
+    public String[] img_text = {"巡检", "维修", "临时任务", "事件上报",
+            "巡检地图", "通讯录", "系统设置", "再瞅一个", "瞅你咋地"};
     public int[] imgs = {R.drawable.app_citycard, R.drawable.app_appcenter,
             R.drawable.app_assign, R.drawable.app_aligame, R.drawable.app_coupon,
             R.drawable.app_essential, R.drawable.app_exchange, R.drawable.app_facepay,
