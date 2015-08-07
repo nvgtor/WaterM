@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -95,15 +96,26 @@ public class PatrolMapDetailActivity extends Activity {
             public boolean onMarkerClick(Marker marker) {
                 Bundle extraInfo = marker.getExtraInfo();
                 MapPointInfo info = (MapPointInfo) extraInfo.getSerializable("info");
-                TextView tv_name = (TextView) findViewById(R.id.id_point_name);
-                TextView tv_latitude = (TextView) findViewById(R.id.id_point_latitude);
-                TextView tv_longitude = (TextView) findViewById(R.id.id_point_longitude);
-                TextView tv_devInf = (TextView) findViewById(R.id.id_point_dev);
+                TextView tv_ID = (TextView) findViewById(R.id.id_map_device_ID_in);
+                TextView tv_name = (TextView) findViewById(R.id.id_map_device_name_in);
+                TextView tv_type = (TextView) findViewById(R.id.id_map_device_type_in);
+                TextView tv_repair = (TextView) findViewById(R.id.id_map_device_repair_in);
+                TextView tv_longitude = (TextView) findViewById(R.id.id_map_device_longitude_in);
+                TextView tv_latitude = (TextView) findViewById(R.id.id_map_device_latitude_in);
+                TextView tv_project = (TextView) findViewById(R.id.id_map_device_project_in);
+                TextView tv_addr = (TextView) findViewById(R.id.id_map_device_address_in);
+                TextView tv_remark = (TextView) findViewById(R.id.id_map_device_remark_in);
 
-                tv_name.setText(info.getName());
-                tv_latitude.setText(info.getLatitude() + "");
-                tv_longitude.setText(info.getLongitude() + "");
-                tv_devInf.setText(info.getDeviceInfo());
+                tv_ID.setText(info.getDeviceID());
+                tv_name.setText(info.getDeviceName());
+                tv_type.setText(info.getDeviceType());
+                tv_repair.setText(info.getDeviceRepair());
+                tv_longitude.setText(info.getDeviceLongitude() + "");
+                tv_latitude.setText(info.getDeviceLatitude() + "");
+                tv_project.setText(info.getDeviceProject());
+                tv_addr.setText(info.getDeviceAddr());
+                tv_remark.setText(info.getDeviceRemark());
+
 
                 mMarkerLy.setVisibility(View.VISIBLE);
 
@@ -123,12 +135,20 @@ public class PatrolMapDetailActivity extends Activity {
             }
         });
 
+        mMarkerLy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(v.getWindowToken(), 0); 
+            }
+        });
+
     }
 
     private void initMarker()
     {
         mMarker = BitmapDescriptorFactory.fromResource(R.drawable.maker);
-        mMarkerLy = (RelativeLayout) findViewById(R.id.id_marker_ly);
+        mMarkerLy = (RelativeLayout) findViewById(R.id.id_map_point_device_detail);
     }
 
     private void initLocation(){
@@ -272,7 +292,7 @@ public class PatrolMapDetailActivity extends Activity {
         for (MapPointInfo info : infos)
         {
             // 经纬度
-            latLng = new LatLng(info.getLatitude(), info.getLongitude());
+            latLng = new LatLng(info.getDeviceLatitude(), info.getDeviceLongitude());
             // 图标
             options = new MarkerOptions().position(latLng).icon(mMarker)
                     .zIndex(5);

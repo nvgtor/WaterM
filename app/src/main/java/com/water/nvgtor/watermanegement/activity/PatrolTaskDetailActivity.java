@@ -5,7 +5,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.view.View;
 import android.view.Window;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.water.nvgtor.watermanegement.R;
@@ -24,20 +27,40 @@ public class PatrolTaskDetailActivity extends Activity implements UnPatrolLoadLi
     UnPatrolLoadListview loadListview;
     private Handler handler;
 
+    private LinearLayout head_back;
+    private ImageView patrol_loc;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.patrol_task_detail);
-        //initView();
+        initView();
+        initChanged();
         getData();
         showListView(patrolList);
     }
 
     private void initView() {
-
+        head_back = (LinearLayout)findViewById(R.id.id_detail_menu_back);
+        patrol_loc = (ImageView) findViewById(R.id.id_detail_patrol_loc);
     }
+     private void initChanged(){
+         head_back.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 finish();
+             }
+         });
+         patrol_loc.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 Toast.makeText(PatrolTaskDetailActivity.this, "you clicked loc", Toast.LENGTH_SHORT).show();
+             }
+         });
+     }
 
     private void getData(){
         for(int i = 0; i < 10; i++){
