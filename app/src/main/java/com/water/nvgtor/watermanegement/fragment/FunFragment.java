@@ -11,7 +11,7 @@ import android.widget.GridView;
 import android.widget.Toast;
 
 import com.water.nvgtor.watermanegement.R;
-import com.water.nvgtor.watermanegement.activity.UnPatrolListActivity;
+import com.water.nvgtor.watermanegement.activity.PatrolTaskListActivity;
 import com.water.nvgtor.watermanegement.adapter.MyGridAdapter;
 
 /**
@@ -45,7 +45,7 @@ public class FunFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
                     case 0:
-                        Intent intent = new Intent(getActivity(), UnPatrolListActivity.class);
+                        Intent intent = new Intent(getActivity(), PatrolTaskListActivity.class);
                         startActivity(intent);
                         //overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
                 }

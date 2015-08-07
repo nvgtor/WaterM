@@ -74,6 +74,9 @@
             android:name=".activity.PatrolTaskListActivity"
             android:theme="@style/MapTheme">
         </activity>
+        <activity android:name=".activity.PatrolTaskDetailActivity">
+
+        </activity>
 
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"

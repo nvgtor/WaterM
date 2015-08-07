@@ -11,33 +11,34 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.water.nvgtor.watermanegement.R;
-import com.water.nvgtor.watermanegement.bean.PatrolTask;
+import com.water.nvgtor.watermanegement.bean.PatrolTaskDetailList;
 
 import java.util.ArrayList;
 
 /**
- * Created by dell on 2015/8/3.
+ * Created by dell on 2015/8/6.
  */
-public class PatrolTaskListAdapter extends BaseAdapter {
-    ArrayList<PatrolTask> patrolList = new ArrayList<PatrolTask>();
+public class PatrolTaskDetailListAdapter extends BaseAdapter {
+
+    ArrayList<PatrolTaskDetailList> patrolList = new ArrayList<PatrolTaskDetailList>();
     LayoutInflater inflater;
     private Handler handler;
 
-    public PatrolTaskListAdapter(Context context, ArrayList<PatrolTask> patrolList){
+    public PatrolTaskDetailListAdapter(Context context, ArrayList<PatrolTaskDetailList> patrolList){
         this.patrolList = patrolList;
         this.inflater = LayoutInflater.from(context);
     }
-
 
     // handler回发是为了处理每个按钮的点击事件
     public void setHandler(Handler handler){
         this.handler = handler;
     }
 
-    public void onDataChange(ArrayList<PatrolTask> patrolList){
+    public void onDataChange(ArrayList<PatrolTaskDetailList> patrolList){
         this.patrolList = patrolList;
         this.notifyDataSetChanged();
     }
+
     @Override
     public int getCount() {
         return patrolList.size();
@@ -55,26 +56,26 @@ public class PatrolTaskListAdapter extends BaseAdapter {
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
-        PatrolTask patrolTask = patrolList.get(position);
+        PatrolTaskDetailList detailList = patrolList.get(position);
         ViewHolder holder;
         if (convertView == null){
             holder = new ViewHolder();
-            convertView = inflater.inflate(R.layout.patrol_task_item, null);
-            holder.tv_name = (TextView)convertView.findViewById(R.id.patrol_task_item1);
-            holder.tv_area = (TextView)convertView.findViewById(R.id.patrol_task_item2);
-            holder.tv_execute = (TextView)convertView.findViewById(R.id.patrol_task_item3);
-            holder.tv_deadline = (TextView)convertView.findViewById(R.id.patrol_task_item5);
+            convertView = inflater.inflate(R.layout.patrol_task_detail_list_item, null);
+            holder.pointID = (TextView)convertView.findViewById(R.id.id_detail_item_ID);
+            holder.pointName = (TextView)convertView.findViewById(R.id.id_detail_item_name);
+            holder.pointaddr = (TextView)convertView.findViewById(R.id.id_detail_item_address);
+            holder.deviceNum = (TextView)convertView.findViewById(R.id.id_detail_item_device_num);
             convertView.setTag(holder);
         }else {
-            holder = (ViewHolder) convertView.getTag();
+            holder = (ViewHolder)convertView.getTag();
         }
-        holder.tv_name.setText(patrolTask.getTaskName());
-        holder.tv_area.setText(patrolTask.getTaskArea());
-        holder.tv_execute.setText(patrolTask.getExecuteMan());
-        holder.tv_deadline.setText(patrolTask.getDeadline());
+        holder.pointID.setText(detailList.getPatrolPointID());
+        holder.pointName.setText(detailList.getPatrolPointName());
+        holder.pointaddr.setText(detailList.getPatrolPointAddress());
+        holder.deviceNum.setText(detailList.getDeviceNum()+"个");
 
-        holder.btn_detail = (Button)convertView.findViewById(R.id.patrol_task_item6);
-        holder.btn_detail.setOnClickListener(new View.OnClickListener() {
+        holder.btn_start = (Button)convertView.findViewById(R.id.id_detail_item_btn);
+        holder.btn_start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(handler != null){
@@ -85,14 +86,13 @@ public class PatrolTaskListAdapter extends BaseAdapter {
                 }
             }
         });
-
         return convertView;
     }
     class ViewHolder{
-        TextView tv_name;
-        TextView tv_area;
-        TextView tv_execute;
-        TextView tv_deadline;
-        Button btn_detail;
+        TextView pointID;
+        TextView pointName;
+        TextView pointaddr;
+        TextView deviceNum;
+        Button btn_start;
     }
 }

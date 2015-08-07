@@ -2,6 +2,7 @@ package com.water.nvgtor.watermanegement.activity;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -56,12 +57,11 @@ public class PatrolTaskListActivity extends Activity implements UnPatrolLoadList
     }
 
     private void getData(){
-        for(int i = 0; i < 10; i++){
+        for(int i = 0; i < 20; i++){
             PatrolTask entity = new PatrolTask();
             entity.setTaskName("A片区巡检");
             entity.setTaskArea("A片区");
             entity.setExecuteMan("张默默");
-            entity.setCreateMan("李某某");
             entity.setDeadline("2015-8-15");
             patrolList.add(entity);
         }
@@ -73,7 +73,6 @@ public class PatrolTaskListActivity extends Activity implements UnPatrolLoadList
             entity.setTaskName("B片区巡检");
             entity.setTaskArea("B片区");
             entity.setExecuteMan("李弘一");
-            entity.setCreateMan("王三心");
             entity.setDeadline("2015-9-1");
             patrolList.add(entity);
         }
@@ -103,6 +102,11 @@ public class PatrolTaskListActivity extends Activity implements UnPatrolLoadList
             super.handleMessage(msg);
             switch(msg.what){//如果item项目里有多个按钮触发，可以在这里区分
                 case R.id.patrol_task_item6:
+                    //switch (msg.arg1){
+                        //case 0:
+                            Intent intent = new Intent(PatrolTaskListActivity.this, PatrolTaskDetailActivity.class);
+                            PatrolTaskListActivity.this.startActivity(intent);
+                    //}
                     Toast.makeText(PatrolTaskListActivity.this, "你点击了详情" + msg.arg1, Toast.LENGTH_SHORT).show();
                     break;
             }

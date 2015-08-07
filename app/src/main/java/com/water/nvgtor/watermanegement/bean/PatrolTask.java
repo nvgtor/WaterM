@@ -7,7 +7,6 @@ public class PatrolTask {
     private String taskName;
     private String taskArea;
     private String executeMan;
-    private String createMan;
     private String deadline;
 
     public String getTaskName() {
@@ -32,14 +31,6 @@ public class PatrolTask {
 
     public void setExecuteMan(String executeMan) {
         this.executeMan = executeMan;
-    }
-
-    public String getCreateMan() {
-        return createMan;
-    }
-
-    public void setCreateMan(String createMan) {
-        this.createMan = createMan;
     }
 
     public String getDeadline() {
