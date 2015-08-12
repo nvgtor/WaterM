@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <include layout="@layout/back_head_for_patrol"/>
+
+    <View
+        android:id="@+id/patroled_line_2"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#696969" />
+
+    <!-- patroled-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginEnd="5dp"
+        android:background="#C0C0C0">
+        <TextView
+            android:id="@+id/id_patroled_plan_ID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:text="巡检计划ID: "
+            android:textSize="12sp"/>
+        <TextView
+            android:id="@+id/id_patroled_plan_ID_in"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/id_patroled_plan_ID"
+            android:text="1214235"
+            android:textSize="14sp"/>
+        <TextView
+            android:id="@+id/id_patroled_man_ID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/id_patroled_man_ID_in"
+            android:text="巡检人员ID: "
+            android:textSize="12sp"/>
+        <TextView
+            android:id="@+id/id_patroled_man_ID_in"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:text="2015123456"
+            android:textSize="12sp"/>
+        <TextView
+            android:id="@+id/id_patroled_patrol_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/id_patroled_plan_ID"
+            android:text="巡检名称: "
+            android:textSize="12sp"/>
+        <TextView
+            android:id="@+id/id_patroled_patrol_name_in"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/id_patroled_plan_ID"
+            android:layout_toRightOf="@+id/id_patroled_patrol_name"
+            android:text="A片区巡检"
+            android:textSize="12sp"/>
+        <TextView
+            android:id="@+id/id_patroled_man_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/id_patroled_man_ID"
+            android:layout_toLeftOf="@+id/id_patroled_man_name_in"
+            android:text="巡检人员名称: "
+            android:textSize="12sp"/>
+        <TextView
+            android:id="@+id/id_patroled_man_name_in"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/id_patroled_man_ID_in"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:text="张默默"
+            android:textSize="12sp"/>
+        <TextView
+            android:id="@+id/id_patroled_plan_start_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/id_patroled_patrol_name"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:text="任务开始时间: "
+            android:textSize="12sp"/>
+        <TextView
+            android:id="@+id/id_patroled_plan_start_time_in"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/id_patroled_patrol_name_in"
+            android:layout_toRightOf="@+id/id_patroled_plan_start_time"
+            android:text="2015-8-25"
+            android:textSize="12sp"/>
+        <TextView
+            android:id="@+id/id_patroled_dispatch_man"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/id_patroled_patrol_name"
+            android:layout_toLeftOf="@+id/id_patroled_dispatch_man_in"
+            android:text="指派人: "
+            android:textSize="12sp"/>
+        <TextView
+            android:id="@+id/id_patroled_dispatch_man_in"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/id_patroled_patrol_name_in"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:text="李某某"
+            android:textSize="12sp"/>
+        <TextView
+            android:id="@+id/id_patroled_plan_deadline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/id_patroled_plan_start_time"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:text="任务截止时间: "
+            android:textSize="12sp"/>
+        <TextView
+            android:id="@+id/id_patroled_task_deadline_in"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/id_patroled_plan_start_time_in"
+            android:layout_toRightOf="@+id/id_patroled_plan_deadline"
+            android:text="2015-9-15"
+            android:textSize="12sp"/>
+        <TextView
+            android:id="@+id/id_patroled_patrol_frequency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/id_patroled_dispatch_man"
+            android:layout_toLeftOf="@+id/id_patroled_patrol_frequency_in"
+            android:text="巡检频率: "
+            android:textSize="12sp"/>
+        <TextView
+            android:id="@+id/id_patroled_patrol_frequency_in"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/id_patroled_dispatch_man_in"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:text="1周"
+            android:textSize="12sp"/>
+        <TextView
+            android:id="@+id/id_patroled_area_ID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/id_patroled_plan_deadline"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:text="区域ID: "
+            android:textSize="12sp"/>
+        <TextView
+            android:id="@+id/id_patroled_area_ID_in"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/id_patroled_task_deadline_in"
+            android:layout_toRightOf="@+id/id_patroled_area_ID"
+            android:text="东二区"
+            android:textSize="12sp"/>
+        <TextView
+            android:id="@+id/id_patroled_area_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/id_patroled_area_ID"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:text="区域地址: "
+            android:textSize="12sp"/>
+        <TextView
+            android:id="@+id/id_patroled_area_address_in"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/id_patroled_area_ID_in"
+            android:layout_toRightOf="@+id/id_patroled_area_address"
+            android:text="高新七路20号"
+            android:textSize="12sp"/>
+        <TextView
+            android:id="@+id/id_patroled_area_point"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/id_patroled_area_address"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:text="区域轮廓坐标: "
+            android:textSize="12sp"/>
+        <TextView
+            android:id="@+id/id_patroled_area_point_in"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/id_patroled_area_address"
+            android:layout_toRightOf="@+id/id_patroled_area_point"
+            android:text="东经120°-150°  北纬60°-70度"
+            android:textSize="12sp"/>
+    </RelativeLayout>
+
+    <!-- list head-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#FF4500"
+        android:layout_marginTop="5dp">
+        <TextView
+            android:id="@+id/id_patroled_tab_1"
+            android:layout_width="70dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="12sp"
+            android:text="巡检点ID"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"/>
+        <TextView
+            android:id="@+id/id_patroled_tab_2"
+            android:layout_width="70dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="12sp"
+            android:text="巡检点名称"/>
+        <TextView
+            android:id="@+id/id_patroled_tab_3"
+            android:layout_width="70dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="12sp"
+            android:text="巡检点地址"/>
+        <TextView
+            android:id="@+id/id_patroled_tab_4"
+            android:layout_width="70dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="12sp"
+            android:text="设备数量"/>
+        <TextView
+            android:id="@+id/id_patroled_tab_5"
+            android:layout_width="70dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="12sp"
+            android:text="操作"
+            android:layout_marginRight="16dp"
+            android:layout_marginEnd="16dp"/>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/patroled_line_3"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#696969" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+        <com.water.nvgtor.watermanegement.view.UnPatrolLoadListview
+            android:id="@+id/id_patroled_item_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:cacheColorHint="#00000000"
+            android:divider="#696969"
+            android:dividerHeight="2dp">
+        </com.water.nvgtor.watermanegement.view.UnPatrolLoadListview>
+    </LinearLayout>
+
+
+</LinearLayout>

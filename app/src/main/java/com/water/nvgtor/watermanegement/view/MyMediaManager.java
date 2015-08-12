@@ -8,7 +8,7 @@ import java.io.IOException;
 /**
  * Created by dell on 2015/8/7.
  */
-public class MediaManager {
+public class MyMediaManager {
     private static MediaPlayer mMediaPlayer;
     private static boolean isPause;
 

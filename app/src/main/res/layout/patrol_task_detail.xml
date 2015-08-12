@@ -4,65 +4,7 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-        <!-- head-->
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:orientation="horizontal"
-            android:background="#00BFFF">
-            <LinearLayout
-                android:id="@+id/id_detail_menu_back"
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
-                android:gravity="center"
-                android:background="@drawable/bg_back_menu"
-                android:clickable="true"
-                android:orientation="horizontal"
-                android:layout_marginLeft="16dp"
-                android:layout_marginStart="16dp">
-                <ImageView
-                    android:id="@+id/id_detail_back_img"
-                    android:layout_width="20dp"
-                    android:layout_height="15dp"
-                    android:layout_gravity="center_vertical"
-                    android:src="@drawable/ic_ab_back_holo_light_am"/>
-                <TextView
-                    android:id="@+id/id_detail_back_text"
-                    android:layout_width="wrap_content"
-                    android:gravity="center"
-                    android:textColor="@color/white"
-                    android:text="返回"
-                    android:layout_height="50dp"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true">
-                <TextView
-                    android:id="@+id/id_detail_back_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/white"
-                    android:text="巡检详情"/>
-            </LinearLayout>
-
-            <ImageView
-                android:id="@+id/id_detail_patrol_loc"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
-                android:src="@drawable/patrol_location"
-                android:layout_gravity="center_vertical"/>
-        </RelativeLayout>
-
+        <include layout="@layout/back_head_for_patrol"/>
         <!-- detail-->
         <RelativeLayout
             android:layout_width="match_parent"
@@ -328,8 +270,11 @@
         <Button
             android:id="@+id/id_detail_task_finish"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:layout_marginBottom="3dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:background="#20B2AA"
             android:text="完成"/>
 
 

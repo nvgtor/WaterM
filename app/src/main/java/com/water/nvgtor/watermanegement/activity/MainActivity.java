@@ -1,43 +1,32 @@
 package com.water.nvgtor.watermanegement.activity;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.view.ViewPager;
-import android.support.v4.view.ViewPager.OnPageChangeListener;
-import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.AdapterView;
+import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.water.nvgtor.watermanegement.R;
-import com.water.nvgtor.watermanegement.adapter.NewsFragmentPagerAdapter;
-import com.water.nvgtor.watermanegement.bean.TabClassify;
-import com.water.nvgtor.watermanegement.fragment.CommunFragment;
-import com.water.nvgtor.watermanegement.fragment.FunFragment;
-import com.water.nvgtor.watermanegement.fragment.TaskFragment;
-import com.water.nvgtor.watermanegement.tool.BaseTools;
-import com.water.nvgtor.watermanegement.tool.Constants;
-import com.water.nvgtor.watermanegement.view.ColumnHorizontalScrollView;
+import com.water.nvgtor.watermanegement.adapter.MyGridAdapter;
 import com.water.nvgtor.watermanegement.view.SlidingMenu;
-
-import java.util.ArrayList;
 
 /**
  * Created by dell on 2015/7/22.
  */
 public class MainActivity extends FragmentActivity{
     /** 自定义HorizontalScrollView */
-    private ColumnHorizontalScrollView mColumnHorizontalScrollView;
-    LinearLayout mRadioGroup_content;
-    private RelativeLayout rl_column;
-    private ViewPager mViewPager;
+    //private ColumnHorizontalScrollView mColumnHorizontalScrollView;
+    //LinearLayout mRadioGroup_content;
+    //private RelativeLayout rl_column;
+    //private ViewPager mViewPager;
 
     private ImageView userImg;
 
@@ -48,31 +37,60 @@ public class MainActivity extends FragmentActivity{
     private RelativeLayout menu_item3;
     private RelativeLayout menu_item4;
 
+    /**
+     * GridView相关
+     */
+    LayoutInflater mInflater;
+    private Context mContext;
+    private GridView gridView;
+    public String[] img_text = {"巡检", "维修", "临时任务", "事件上报",
+            "巡检地图", "通讯录", "系统设置"};
+    public int[] imgs = {R.drawable.app_citycard, R.drawable.app_appcenter,
+            R.drawable.app_assign, R.drawable.app_aligame, R.drawable.app_coupon,
+            R.drawable.app_essential, R.drawable.app_exchange};
+
     /** 滑动区分类列表 */
-    private ArrayList<TabClassify> tabClassifies = new ArrayList<TabClassify>();
+    //private ArrayList<TabClassify> tabClassifies = new ArrayList<TabClassify>();
     /** 当前选中的栏目 */
-    private int columnSelectIndex = 0;
+    //private int columnSelectIndex = 0;
     /** 屏幕宽度 */
-    private int mScreenWidth = 0;
+    //private int mScreenWidth = 0;
     /** Item宽度 */
-    private int mItemWidth = 0;
-    private ArrayList<Fragment> fragments = new ArrayList<Fragment>();
+    //private int mItemWidth = 0;
+    //private ArrayList<Fragment> fragments = new ArrayList<Fragment>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
-        mScreenWidth = BaseTools.getWindowsWidth(this);
-        mItemWidth = mScreenWidth / 3;
+        //mScreenWidth = BaseTools.getWindowsWidth(this);
+        ///mItemWidth = mScreenWidth / 3;
         initView();
+        MyGridAdapter adapter = new MyGridAdapter(this,img_text,imgs);
+        gridView.setAdapter(adapter);
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                switch (position) {
+                    case 0:
+                        Intent intent = new Intent(MainActivity.this, PatrolTaskListActivity.class);
+                        startActivity(intent);
+                        //overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
+                }
+                Toast.makeText(MainActivity.this, "you clicked " + position, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void initView(){
-        mColumnHorizontalScrollView = (ColumnHorizontalScrollView)findViewById(R.id.mColumnHorizontalScrollView);
-        mRadioGroup_content = (LinearLayout)findViewById(R.id.mRadioGroup_content);
-        rl_column = (RelativeLayout)findViewById(R.id.rl_column);
-        mViewPager = (ViewPager)findViewById(R.id.mViewPager);
+        //mColumnHorizontalScrollView = (ColumnHorizontalScrollView)findViewById(R.id.mColumnHorizontalScrollView);
+        //mRadioGroup_content = (LinearLayout)findViewById(R.id.mRadioGroup_content);
+        //rl_column = (RelativeLayout)findViewById(R.id.rl_column);
+       // mViewPager = (ViewPager)findViewById(R.id.mViewPager);
+
+        //gridview
+        gridView = (GridView)findViewById(R.id.gridview);
 
         userImg = (ImageView)findViewById(R.id.top_head_userImg);
 
@@ -87,9 +105,9 @@ public class MainActivity extends FragmentActivity{
     private void setChangeView(){
         initTopHead();
         initLeftMenu();
-        initColumnData();
+        /*initColumnData();
         initTabColumn();
-        initFragment();
+        initFragment();*/
     }
 
     /**
@@ -135,12 +153,12 @@ public class MainActivity extends FragmentActivity{
     }
 
     /** 获取column数据 */
-    private void initColumnData(){
+    /*private void initColumnData(){
         tabClassifies = Constants.getData();
-    }
+    }*/
 
     /** 初始化Column栏目项 */
-    private void initTabColumn(){
+    /*private void initTabColumn(){
         mRadioGroup_content.removeAllViews();
         int count = tabClassifies.size();
         mColumnHorizontalScrollView.setParam(this,mScreenWidth,mRadioGroup_content,rl_column);
@@ -177,12 +195,12 @@ public class MainActivity extends FragmentActivity{
             });
             mRadioGroup_content.addView(localTextView, i, params);
         }
-    }
+    }*/
 
     /**
      * 选择的Column里面的Tab
      */
-    private void selectTab(int tab_postion) {
+    /*private void selectTab(int tab_postion) {
         columnSelectIndex = tab_postion;
         for (int i = 0; i < mRadioGroup_content.getChildCount(); i++) {
             View checkView = mRadioGroup_content.getChildAt(tab_postion);
@@ -205,12 +223,12 @@ public class MainActivity extends FragmentActivity{
             }
             checkView.setSelected(ischeck);
         }
-    }
+    }*/
 
     /**
      * 初始化fragment
      */
-    private void initFragment() {
+    /*private void initFragment() {
 
         FunFragment funFragment = new FunFragment();
         fragments.add(funFragment);
@@ -222,11 +240,11 @@ public class MainActivity extends FragmentActivity{
         mViewPager.setAdapter(mAdapetr);
         mViewPager.setOnPageChangeListener(pageListener);
     }
-
+*/
     /**
      *  ViewPager切换监听方法
      * */
-    public OnPageChangeListener pageListener= new OnPageChangeListener(){
+    /*public OnPageChangeListener pageListener= new OnPageChangeListener(){
 
         @Override
         public void onPageScrollStateChanged(int arg0) {
@@ -243,7 +261,7 @@ public class MainActivity extends FragmentActivity{
             mViewPager.setCurrentItem(position);
             selectTab(position);
         }
-    };
+    };*/
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu)

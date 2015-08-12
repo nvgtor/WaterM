@@ -7,7 +7,47 @@
 
     <include layout="@layout/main_head"/>
 
-    <RelativeLayout
+    <ScrollView
+        android:id="@+id/id_scro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <View
+                android:id="@+id/category_line_0"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#C0C0C0" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/weather_img1"/>
+            <View
+                android:id="@+id/category_line"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#C0C0C0" />
+            <com.water.nvgtor.watermanegement.view.MyGridView
+                android:id="@+id/gridview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:horizontalSpacing="0.0dip"
+                android:verticalSpacing="0.0dip"
+                android:listSelector="@null"
+                android:numColumns="3"
+                android:scrollbars="none"
+                android:stretchMode="columnWidth"/>
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
+
+    <!--<RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="40.0dip"
         android:background="#fff3f3f3"
@@ -34,16 +74,10 @@
                     android:paddingRight="10.0dip" />
             </com.water.nvgtor.watermanegement.view.ColumnHorizontalScrollView>
         </RelativeLayout>
-    </RelativeLayout>
+    </RelativeLayout>-->
 
-    <View
-        android:id="@+id/category_line"
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:background="#ffdddddd" />
-    <android.support.v4.view.ViewPager
+
+    <!--<android.support.v4.view.ViewPager
         android:id="@+id/mViewPager"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-    </LinearLayout>
+        android:layout_height="wrap_content"/>-->

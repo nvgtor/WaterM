@@ -3,6 +3,7 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
+
     <RelativeLayout
         android:id="@+id/id_map_point_device_detail"
         android:layout_width="match_parent"
@@ -12,282 +13,421 @@
         android:layout_alignParentBottom="true"
         android:visibility="gone">
 
-    <!-- detail-->
-    <RelativeLayout
-        android:id="@+id/id_map_device_detail_top"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginEnd="5dp"
-        android:background="#C0C0C0">
-        <TextView
-            android:id="@+id/id_map_device_ID"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:text="设备ID: "
-            android:textSize="12sp"/>
-        <TextView
-            android:id="@+id/id_map_device_ID_in"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/id_map_device_ID"
-            android:text="001"
-            android:textSize="14sp"/>
-        <TextView
-            android:id="@+id/id_map_device_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toLeftOf="@+id/id_map_device_name_in"
-            android:text="设备名称: "
-            android:textSize="12sp"/>
-        <TextView
-            android:id="@+id/id_map_device_name_in"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:text="水表0"
-            android:textSize="12sp"/>
-        <TextView
-            android:id="@+id/id_map_device_type"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/id_map_device_ID"
-            android:text="设备类型: "
-            android:textSize="12sp"/>
-        <TextView
-            android:id="@+id/id_map_device_type_in"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/id_map_device_ID_in"
-            android:layout_toRightOf="@+id/id_map_device_type"
-            android:text="水表"
-            android:textSize="12sp"/>
-        <TextView
-            android:id="@+id/id_map_device_repair"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/id_map_device_name"
-            android:layout_toLeftOf="@+id/id_map_device_repair_in"
-            android:text="维护项目: "
-            android:textSize="12sp"/>
-        <TextView
-            android:id="@+id/id_map_device_repair_in"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/id_map_device_name"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:text="表针"
-            android:textSize="12sp"/>
-        <TextView
-            android:id="@+id/id_map_device_longitude"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/id_map_device_type"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:text="经度: "
-            android:textSize="12sp"/>
-        <TextView
-            android:id="@+id/id_map_device_longitude_in"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/id_map_device_type"
-            android:layout_toRightOf="@+id/id_map_device_longitude"
-            android:text="117.533359"
-            android:textSize="12sp"/>
-        <TextView
-            android:id="@+id/id_map_device_latitude"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/id_map_device_repair"
-            android:layout_toLeftOf="@+id/id_map_device_latitude_in"
-            android:text="纬度: "
-            android:textSize="12sp"/>
-        <TextView
-            android:id="@+id/id_map_device_latitude_in"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/id_map_device_repair_in"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:text="39.125493"
-            android:textSize="12sp"/>
-        <TextView
-            android:id="@+id/id_map_device_project"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/id_map_device_longitude"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:text="所在工程: "
-            android:textSize="12sp"/>
-        <TextView
-            android:id="@+id/id_map_device_project_in"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/id_map_device_longitude"
-            android:layout_toRightOf="@+id/id_map_device_project"
-            android:text="911"
-            android:textSize="12sp"/>
-        <TextView
-            android:id="@+id/id_map_device_address"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/id_map_device_project"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:text="地址: "
-            android:textSize="12sp"/>
-        <TextView
-            android:id="@+id/id_map_device_address_in"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/id_map_device_project"
-            android:layout_toRightOf="@+id/id_map_device_address"
-            android:text="天河大道"
-            android:textSize="12sp"/>
-        <TextView
-            android:id="@+id/id_map_device_remark"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/id_map_device_address"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:text="备注: "
-            android:textSize="12sp"/>
-        <TextView
-            android:id="@+id/id_map_device_remark_in"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/id_map_device_address"
-            android:layout_toRightOf="@+id/id_map_device_remark"
-            android:text="XXXXXXXXXXXXXXXXXXXXX"
-            android:textSize="12sp"/>
-    </RelativeLayout>
-
-    <!-- Exception Report -->
-    <RelativeLayout
-        android:id="@+id/id_map_device_mid"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="7dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_below="@+id/id_map_device_detail_top">
-        <TextView
-            android:id="@+id/id_map_tv_re"
+        <!-- detail-->
+        <RelativeLayout
+            android:id="@+id/id_map_device_detail_top"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="水表检测异常报告："/>
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginEnd="5dp"
+            android:padding="5dp"
+            android:background="#C0C0C0">
+            <TextView
+                android:id="@+id/id_map_device_ID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:text="设备ID: "
+                android:textSize="12sp"/>
+            <TextView
+                android:id="@+id/id_map_device_ID_in"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/id_map_device_ID"
+                android:text="001"
+                android:textSize="14sp"/>
+            <TextView
+                android:id="@+id/id_map_device_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/id_map_device_name_in"
+                android:text="设备名称: "
+                android:textSize="12sp"/>
+            <TextView
+                android:id="@+id/id_map_device_name_in"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:text="水表0"
+                android:textSize="12sp"/>
+            <TextView
+                android:id="@+id/id_map_device_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/id_map_device_ID"
+                android:text="设备类型: "
+                android:textSize="12sp"/>
+            <TextView
+                android:id="@+id/id_map_device_type_in"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/id_map_device_ID_in"
+                android:layout_toRightOf="@+id/id_map_device_type"
+                android:text="水表"
+                android:textSize="12sp"/>
+            <TextView
+                android:id="@+id/id_map_device_repair"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/id_map_device_name"
+                android:layout_toLeftOf="@+id/id_map_device_repair_in"
+                android:text="维护项目: "
+                android:textSize="12sp"/>
+            <TextView
+                android:id="@+id/id_map_device_repair_in"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/id_map_device_name"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:text="表针"
+                android:textSize="12sp"/>
+            <TextView
+                android:id="@+id/id_map_device_longitude"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/id_map_device_type"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:text="经度: "
+                android:textSize="12sp"/>
+            <TextView
+                android:id="@+id/id_map_device_longitude_in"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/id_map_device_type"
+                android:layout_toRightOf="@+id/id_map_device_longitude"
+                android:text="117.533359"
+                android:textSize="12sp"/>
+            <TextView
+                android:id="@+id/id_map_device_latitude"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/id_map_device_repair"
+                android:layout_toLeftOf="@+id/id_map_device_latitude_in"
+                android:text="纬度: "
+                android:textSize="12sp"/>
+            <TextView
+                android:id="@+id/id_map_device_latitude_in"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/id_map_device_repair_in"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:text="39.125493"
+                android:textSize="12sp"/>
+            <TextView
+                android:id="@+id/id_map_device_project"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/id_map_device_longitude"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:text="所在工程: "
+                android:textSize="12sp"/>
+            <TextView
+                android:id="@+id/id_map_device_project_in"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/id_map_device_longitude"
+                android:layout_toRightOf="@+id/id_map_device_project"
+                android:text="911"
+                android:textSize="12sp"/>
+            <TextView
+                android:id="@+id/id_map_device_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/id_map_device_project"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:text="地址: "
+                android:textSize="12sp"/>
+            <TextView
+                android:id="@+id/id_map_device_address_in"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/id_map_device_project"
+                android:layout_toRightOf="@+id/id_map_device_address"
+                android:text="天河大道"
+                android:textSize="12sp"/>
+            <TextView
+                android:id="@+id/id_map_device_remark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/id_map_device_address"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:text="备注: "
+                android:textSize="12sp"/>
+            <TextView
+                android:id="@+id/id_map_device_remark_in"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/id_map_device_address"
+                android:layout_toRightOf="@+id/id_map_device_remark"
+                android:text="放马过来"
+                android:textSize="12sp"/>
+        </RelativeLayout>
+
         <View
-            android:id="@+id/line_1"
+            android:id="@+id/line_0"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_below="@+id/id_map_tv_re"
+            android:layout_below="@+id/id_map_device_detail_top"
             android:background="#ccc"/>
-        <EditText
+
+        <LinearLayout
+            android:id="@+id/id_map_device_checkLY"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/line_1"
-            android:layout_marginTop="7dp"
-            android:minLines="3"
-            android:gravity="left"
-            android:hint="我是异常，来打我呀！我是异常，来打我呀！我是异常，来打我呀！我是异常，来打我呀！"
-            android:textSize="12sp"
-            android:inputType="text"/>
-    </RelativeLayout>
+            android:orientation="horizontal"
+            android:layout_below="@+id/line_0">
+            <CheckBox
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="50dp"
+                android:text="设备正常"
+                android:textSize="14sp"/>
+            <CheckBox
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginRight="50dp"
+                android:text="设备异常"
+                android:textSize="14sp"/>
+        </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/id_map_device_photo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_below="@+id/id_map_device_mid"
-        android:orientation="horizontal">
-        <ImageView
-            android:id="@+id/id_map_img_add_1"
-            android:layout_width="60dp"
-            android:layout_height="100dp"
-            android:layout_weight="1"
-            android:src="@drawable/device_img_1"/>
-        <ImageView
-            android:id="@+id/id_map_img_add_2"
-            android:layout_width="60dp"
-            android:layout_height="100dp"
-            android:layout_weight="1"
-            android:src="@drawable/device_img_2"/>
-        <ImageView
-            android:id="@+id/id_map_img_add_3"
-            android:layout_width="60dp"
-            android:layout_height="100dp"
-            android:layout_weight="1"
-            android:src="@drawable/device_img_3"/>
-        <ImageView
-            android:id="@+id/id_map_img_add_4"
-            android:layout_width="60dp"
-            android:layout_height="100dp"
-            android:layout_weight="1"
-            android:src="@drawable/map_img_add_more"/>
-    </LinearLayout>
+        <View
+            android:id="@+id/line_below_ly"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/id_map_device_checkLY"
+            android:background="#ccc"/>
 
-    <View
-        android:id="@+id/id_map_device_line_2"
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_marginTop="3dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_below="@+id/id_map_device_photo"
-        android:background="#ccc"/>
-
-    <LinearLayout
-        android:id="@+id/id_map_point_for_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_below="@+id/id_map_device_line_2">
-        <com.water.nvgtor.watermanegement.view.AudioRecorderButton
-            android:id="@+id/recorder_button"
+        <!-- Exception Report -->
+        <RelativeLayout
+            android:id="@+id/id_map_device_frame"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
-            android:layout_marginTop="6dp"
-            android:layout_marginBottom="7dp"
-            android:gravity="center"
-            android:padding="5dp"
-            android:text="@string/str_recorder_normal"
-            android:textColor="#727272"
-            android:background="@drawable/button_recorder_normal"
-            android:minHeight="0dp"/>
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/bg_frame"
+            android:layout_below="@+id/line_below_ly">
 
-            <ListView
+            <RelativeLayout
+                android:id="@+id/id_map_device_mid"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:divider="@null"
-                android:dividerHeight="10dp"
-                android:listSelector="#00000000"
-                android:cacheColorHint="#00000000">
-            </ListView>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginEnd="5dp">
 
+                <EditText
+                    android:id="@+id/id_map_device_report_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginRight="0dp"
+                    android:layout_marginEnd="0dp"
+                    android:hint="（必填）时间上报标题"
+                    android:singleLine="true"
+                    android:textSize="13sp"/>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/id_map_device_report_title"
+                    android:hint="（必填）我是异常呀，我竟然是异常，我哪里有问题，我是异常呀我是异常呀我是异常呀我是异常呀"
+                    android:minLines="2"
+                    android:gravity="top"
+                    android:textSize="12sp"
+                    android:inputType="textMultiLine" />
+            </RelativeLayout>
 
-    </LinearLayout>
+            <RelativeLayout
+                android:id="@+id/id_map_device_imgRecorder"
+                android:layout_width="match_parent"
+                android:layout_below="@+id/id_map_device_mid"
+                android:layout_height="50dp">
+                <LinearLayout
+                    android:id="@+id/id_map_device_photo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@drawable/bg_frame_img"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:id="@+id/id_map_img_add_1"
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/device_img_1"/>
+                    <ImageView
+                        android:id="@+id/id_map_img_add_2"
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/device_img_2"/>
+                    <ImageView
+                        android:id="@+id/id_map_img_add_3"
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/device_img_1"/>
+                    <ImageView
+                        android:id="@+id/id_map_img_add_4"
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/device_img_2"/>
+                </LinearLayout>
+
+                <ListView
+                    android:id="@+id/id_device_recorder_list"
+                    android:layout_width="170dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:divider="@null"
+                    android:dividerHeight="10dp"
+                    android:listSelector="#00000000"
+                    android:cacheColorHint="#00000000"/>
+
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/id_map_device_line_2"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_below="@+id/id_map_device_imgRecorder"
+                android:background="#ccc"/>
+
+            <LinearLayout
+                android:id="@+id/id_map_device_photo_recorder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/id_map_device_line_2"
+                android:orientation="horizontal">
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:clickable="true"
+                    android:layout_weight="1">
+                    <ImageView
+                        android:id="@+id/id_map_device_img_camera"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:src="@drawable/camera_input"/>
+                    <TextView
+                        android:id="@+id/id_map_device_tv_camera"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:layout_marginTop="3dp"
+                        android:layout_below="@+id/id_map_device_img_camera"
+                        android:text="拍照"
+                        android:textSize="14sp"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:clickable="true"
+                    android:layout_weight="1">
+                    <ImageView
+                        android:id="@+id/id_map_device_img_gallery"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:src="@drawable/gallery_img_input"/>
+                    <TextView
+                        android:id="@+id/id_map_device_tv_gallery"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:layout_marginTop="3dp"
+                        android:layout_below="@+id/id_map_device_img_gallery"
+                        android:text="相册"
+                        android:textSize="14sp"/>
+                </RelativeLayout>
+
+                <com.water.nvgtor.watermanegement.view.AudioRecorderButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:clickable="true"
+                    android:layout_weight="1">
+                    <ImageView
+                        android:id="@+id/id_map_device_img_recorder"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:src="@drawable/recorder_in_img"/>
+                    <TextView
+                        android:id="@+id/id_map_device_tv_recorder"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:layout_marginTop="3dp"
+                        android:layout_below="@+id/id_map_device_img_recorder"
+                        android:text="录音"
+                        android:textSize="14sp"/>
+                </com.water.nvgtor.watermanegement.view.AudioRecorderButton>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/id_map_device_line_3"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="5dp"
+                android:layout_below="@+id/id_map_device_photo_recorder"
+                android:background="#ccc"/>
+
+            <LinearLayout
+                android:id="@+id/id_map_point_for_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_below="@+id/id_map_device_line_3">
+                <com.water.nvgtor.watermanegement.view.AudioRecorderButton
+                    android:id="@+id/recorder_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="50dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="7dp"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="@string/str_recorder_normal"
+                    android:textColor="#727272"
+                    android:background="@drawable/button_recorder_normal"
+                    android:minHeight="0dp"/>
+
+            </LinearLayout>
+
+        </RelativeLayout>
 
     </RelativeLayout>
 
 </RelativeLayout>
+

@@ -3,11 +3,16 @@ package com.water.nvgtor.watermanegement.activity;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.drawable.AnimationDrawable;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,8 +36,12 @@ import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.map.OverlayOptions;
 import com.baidu.mapapi.model.LatLng;
 import com.water.nvgtor.watermanegement.R;
+import com.water.nvgtor.watermanegement.adapter.RecorderAdapter;
 import com.water.nvgtor.watermanegement.bean.MapPointInfo;
+import com.water.nvgtor.watermanegement.bean.Recorder;
 import com.water.nvgtor.watermanegement.tool.MyOrientationListener;
+import com.water.nvgtor.watermanegement.view.AudioRecorderButton;
+import com.water.nvgtor.watermanegement.view.MyMediaManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -64,6 +73,13 @@ public class PatrolMapDetailActivity extends Activity {
     //覆盖物相关
     private BitmapDescriptor mMarker;
     private RelativeLayout mMarkerLy;
+
+    //录音相关
+    private ListView mListView;
+    private ArrayAdapter<Recorder> mAdapter;
+    private List<Recorder> mDatas = new ArrayList<Recorder>();
+    private AudioRecorderButton mAudioRecorderButton;
+    private View animView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -139,7 +155,47 @@ public class PatrolMapDetailActivity extends Activity {
             @Override
             public void onClick(View v) {
                 InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-                imm.hideSoftInputFromWindow(v.getWindowToken(), 0); 
+                imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+            }
+        });
+
+
+        mListView = (ListView) findViewById(R.id.id_device_recorder_list);
+        mAudioRecorderButton = (AudioRecorderButton) findViewById(R.id.recorder_button);
+        mAudioRecorderButton.setAudioFinishRecorderListener(new AudioRecorderButton.AudioFinishRecorderListener() {
+            @Override
+            public void onFinish(float seconds, String filePath) {
+                Recorder recorder = new Recorder(seconds, filePath);
+                mDatas.add(recorder);
+                mAdapter.notifyDataSetChanged();//通知更新的内容
+                mListView.setSelection(mDatas.size() - 1);//将lisview设置为最后一个
+            }
+        });
+
+        mAdapter = new RecorderAdapter(this,mDatas);
+        mListView.setAdapter(mAdapter);
+
+        //listView的item点击事件
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if (animView != null) {
+                    animView.setBackgroundResource(R.drawable.adj);
+                    animView = null;
+                }
+                //播放动画
+                animView = view.findViewById(R.id.recorder_anim);
+                animView.setBackgroundResource(R.drawable.play_anim);
+                AnimationDrawable anim = (AnimationDrawable) animView.getBackground();
+                anim.start();
+                //播放音频
+                MyMediaManager.playSound(mDatas.get(position).filePath, new MediaPlayer.OnCompletionListener() {
+
+                    @Override
+                    public void onCompletion(MediaPlayer mp) {
+                        animView.setBackgroundResource(R.drawable.adj);
+                    }
+                });
             }
         });
 

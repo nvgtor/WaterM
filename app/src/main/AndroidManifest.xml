@@ -7,6 +7,10 @@
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
 
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
     <!-- 百度地图权限设置-->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" >
     </uses-permission>
@@ -77,6 +81,8 @@
         <activity android:name=".activity.PatrolTaskDetailActivity">
 
         </activity>
+        <activity android:name=".activity.PatroledListActivity"/>
+        <activity android:name=".activity.PatroledListDetailActivity"/>
 
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"

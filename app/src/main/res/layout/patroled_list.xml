@@ -5,24 +5,29 @@
               android:layout_height="match_parent">
 
     <include layout="@layout/back_head_for_patrol"/>
-    
+
+    <View
+        android:id="@+id/patroled_line_0"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#696969" />
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
         android:orientation="horizontal"
+        android:padding="1dp"
         android:background="#C0C0C0">
         <TextView
-            android:id="@+id/id_tast_tab1"
+            android:id="@+id/id_patroled_tab1"
             android:layout_width="70dp"
             android:layout_height="30dp"
             android:layout_weight="1"
             android:gravity="center"
             android:textSize="14sp"
-            android:text="任务名称"
-            android:layout_marginLeft="16dp"
-            android:layout_marginStart="16dp"/>
+            android:text="任务"/>
         <TextView
-            android:id="@+id/id_tast_tab2"
+            android:id="@+id/id_patroled_tab2"
             android:layout_width="70dp"
             android:layout_height="30dp"
             android:layout_weight="1"
@@ -30,7 +35,7 @@
             android:textSize="14sp"
             android:text="区域"/>
         <TextView
-            android:id="@+id/id_tast_tab3"
+            android:id="@+id/id_patroled_tab3"
             android:layout_width="70dp"
             android:layout_height="30dp"
             android:layout_weight="1"
@@ -38,30 +43,43 @@
             android:textSize="14sp"
             android:text="执行人"/>
         <TextView
-            android:id="@+id/id_tast_tab4"
+            android:id="@+id/id_patroled_tab4"
             android:layout_width="70dp"
             android:layout_height="30dp"
             android:layout_weight="1"
             android:gravity="center"
             android:textSize="14sp"
-            android:text="截止时间"/>
+            android:text="截止"/>
         <TextView
-            android:id="@+id/id_tast_tab5"
+            android:id="@+id/id_patroled_tab5"
             android:layout_width="70dp"
             android:layout_height="30dp"
             android:layout_weight="1"
             android:gravity="center"
             android:textSize="14sp"
-            android:text="操作"
-            android:layout_marginRight="16dp"
-            android:layout_marginEnd="16dp"/>
+            android:text="审核"/>
+        <TextView
+            android:id="@+id/id_patroled_tab6"
+            android:layout_width="70dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:text="操作"/>
     </LinearLayout>
+
+    <View
+        android:id="@+id/patroled_line_1"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#696969" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1">
         <com.water.nvgtor.watermanegement.view.UnPatrolLoadListview
-            android:id="@+id/task_list"
+            android:id="@+id/patroled_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
@@ -72,9 +90,9 @@
     </LinearLayout>
 
     <View
-        android:id="@+id/patroled_line_1"
+        android:id="@+id/patroled_line_2"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="2dp"
         android:background="#696969" />
 
     <LinearLayout
@@ -89,7 +107,7 @@
             android:layout_height="40dp"
             android:layout_weight="1"
             android:text="待办巡检"
-            android:background="#20B2AA"
+            android:background="#A9A9A9"
             android:textSize="13sp"
             android:layout_marginLeft="16dp"
             android:layout_marginStart="16dp"/>
@@ -99,7 +117,7 @@
             android:layout_height="40dp"
             android:layout_weight="1"
             android:text="已办巡检"
-            android:background="#A9A9A9"
+            android:background="#20B2AA"
             android:textSize="13sp"
             android:layout_marginRight="16dp"
             android:layout_marginEnd="16dp"/>

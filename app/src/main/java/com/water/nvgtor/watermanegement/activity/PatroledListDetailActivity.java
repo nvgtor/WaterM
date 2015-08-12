@@ -12,21 +12,20 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.water.nvgtor.watermanegement.R;
-import com.water.nvgtor.watermanegement.adapter.PatrolTaskDetailListAdapter;
+import com.water.nvgtor.watermanegement.adapter.PatroledDetailListAdapter;
 import com.water.nvgtor.watermanegement.bean.PatrolTaskDetailList;
 import com.water.nvgtor.watermanegement.view.UnPatrolLoadListview;
 
 import java.util.ArrayList;
 
 /**
- * Created by dell on 2015/8/6.
+ * Created by dell on 2015/8/11.
  */
-public class PatrolTaskDetailActivity extends Activity implements UnPatrolLoadListview.ILoadListener{
+public class PatroledListDetailActivity extends Activity implements UnPatrolLoadListview.ILoadListener {
     ArrayList<PatrolTaskDetailList> patrolList = new ArrayList<PatrolTaskDetailList>();
-    PatrolTaskDetailListAdapter adapter;
+    PatroledDetailListAdapter adapter;
     UnPatrolLoadListview loadListview;
     private Handler handler;
-
     private ImageView img_back;
     private TextView tv_title;
     private ImageView patrol_loc;
@@ -37,7 +36,7 @@ public class PatrolTaskDetailActivity extends Activity implements UnPatrolLoadLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.patrol_task_detail);
+        setContentView(R.layout.patroled_list_detail);
         initView();
         initChanged();
         getData();
@@ -49,25 +48,27 @@ public class PatrolTaskDetailActivity extends Activity implements UnPatrolLoadLi
         tv_title = (TextView)findViewById(R.id.id_detail_back_title);
         patrol_loc = (ImageView) findViewById(R.id.id_detail_patrol_loc);
     }
-     private void initChanged(){
-         tv_title.setText("待办巡检详情");
-         patrol_loc.setImageResource(R.drawable.icon_activity_lbs);
-         img_back.setOnClickListener(new View.OnClickListener() {
-             @Override
-             public void onClick(View v) {
-                 finish();
-             }
-         });
-         patrol_loc.setOnClickListener(new View.OnClickListener() {
-             @Override
-             public void onClick(View v) {
-                 Toast.makeText(PatrolTaskDetailActivity.this, "you clicked loc", Toast.LENGTH_SHORT).show();
-             }
-         });
-     }
+    private void initChanged(){
+        tv_title.setText("已办巡检详情");
+        patrol_loc.setImageResource(R.drawable.icon_activity_lbs);
+        patrol_loc.setMaxWidth(30);
+        patrol_loc.setMaxHeight(30);
+        img_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        patrol_loc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(PatroledListDetailActivity.this, "you clicked loc", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 
     private void getData(){
-        for(int i = 0; i < 10; i++){
+        for(int i = 0; i < 5; i++){
             PatrolTaskDetailList entity = new PatrolTaskDetailList();
             entity.setPatrolPointID("AK0183");
             entity.setPatrolPointName("A巡检点");
@@ -90,9 +91,9 @@ public class PatrolTaskDetailActivity extends Activity implements UnPatrolLoadLi
 
     private void showListView(ArrayList<PatrolTaskDetailList> patrolList){
         if (adapter == null){
-            loadListview = (UnPatrolLoadListview) findViewById(R.id.id_detail_list);
+            loadListview = (UnPatrolLoadListview) findViewById(R.id.id_patroled_item_list);
             loadListview.setInterface(this);
-            adapter = new PatrolTaskDetailListAdapter(this, patrolList);
+            adapter = new PatroledDetailListAdapter(this, patrolList);
             adapter.setHandler(handler_h);
             loadListview.setAdapter(adapter);
         }else {
@@ -123,13 +124,14 @@ public class PatrolTaskDetailActivity extends Activity implements UnPatrolLoadLi
             // TODO Auto-generated method stub
             super.handleMessage(msg);
             switch(msg.what){//如果item项目里有多个按钮触发，可以在这里区分
-                case R.id.id_detail_item_btn:
-                    Intent intent = new Intent(PatrolTaskDetailActivity.this, PatrolMapDetailActivity.class);
+                case R.id.id_patroled_item_btn_1:
+                    Intent intent = new Intent(PatroledListDetailActivity.this, PatrolMapDetailActivity.class);
                     startActivity(intent);
-                    Toast.makeText(PatrolTaskDetailActivity.this, "你点击了开始" + msg.arg1, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PatroledListDetailActivity.this, "你点击了查看" + msg.arg1, Toast.LENGTH_SHORT).show();
                     break;
             }
         }
 
     };
 }
+

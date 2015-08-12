@@ -49,7 +49,7 @@ public class DialogManager {
             mLable.setVisibility(View.VISIBLE);
 
             mIcon.setImageResource(R.drawable.recorder);
-            mLable.setText("手指上滑,取消发送");
+            mLable.setText("手指上滑,取消录音");
         }
     }
 
@@ -63,7 +63,7 @@ public class DialogManager {
             mLable.setVisibility(View.VISIBLE);
 
             mIcon.setImageResource(R.drawable.cancel);
-            mLable.setText("松开手指,取消发送");
+            mLable.setText("松开手指,取消录音");
         }
     }
 
