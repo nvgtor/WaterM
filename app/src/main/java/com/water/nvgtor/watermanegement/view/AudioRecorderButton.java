@@ -46,7 +46,7 @@ public class AudioRecorderButton extends Button implements AudioManager.AudioSta
         super(context, attrs, defStyle);
         mDialogManger = new DialogManager(getContext());
         //TODO 判断SD卡是否存在
-        String dir = Environment.getExternalStorageDirectory()+"/zane_recorder_audios";
+        String dir = Environment.getExternalStorageDirectory()+"/nvgtor_recorder_audios";
         mAudioManger = AudioManager.getmInstance(dir);
         mAudioManger.setOnAudioStateListener(this);
 
@@ -197,19 +197,19 @@ public class AudioRecorderButton extends Button implements AudioManager.AudioSta
             mCurState = state;
             switch(state) {
                 case STATE_NORMAL:
-                    setBackgroundResource(R.drawable.button_recorder_normal);
-                    setText(R.string.str_recorder_normal);
+                    setBackgroundResource(R.drawable.btn_pb_add_microphone);
+                    //setText(R.string.str_recorder_normal);
                     break;
                 case STATE_RECORDING:
-                    setBackgroundResource(R.drawable.button_recorder);
-                    setText(R.string.str_recorder_recorder);
+                    setBackgroundResource(R.drawable.btn_posts_microphone_l_1);
+                    //setText(R.string.str_recorder_recorder);
                     if(isRecording) {
                         mDialogManger.recording();
                     }
                     break;
                 case STATE_WANT_TO_CANCEL:
-                    setBackgroundResource(R.drawable.button_recorder);
-                    setText(R.string.str_recorder_want_cancel);
+                    setBackgroundResource(R.drawable.btn_posts_microphone_l_1);
+                    //setText(R.string.str_recorder_want_cancel);
                     mDialogManger.wantToCancel();
                     break;
             }

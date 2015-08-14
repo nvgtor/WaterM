@@ -45,9 +45,9 @@ public class MainActivity extends FragmentActivity{
     private GridView gridView;
     public String[] img_text = {"巡检", "维修", "临时任务", "事件上报",
             "巡检地图", "通讯录", "系统设置"};
-    public int[] imgs = {R.drawable.app_citycard, R.drawable.app_appcenter,
-            R.drawable.app_assign, R.drawable.app_aligame, R.drawable.app_coupon,
-            R.drawable.app_essential, R.drawable.app_exchange};
+    public int[] imgs = {R.drawable.zhoumoqunaer, R.drawable.icon_game_tab_class_n,
+            R.drawable.icon_game_tab_hot_n, R.drawable.btn_live_speak_n, R.drawable.detail_normal_addr,
+            R.drawable.icon_me_group, R.drawable.atm};
 
     /** 滑动区分类列表 */
     //private ArrayList<TabClassify> tabClassifies = new ArrayList<TabClassify>();

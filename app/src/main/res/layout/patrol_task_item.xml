@@ -11,7 +11,7 @@
         <TextView
             android:id="@+id/patrol_task_item1"
             android:layout_width="70dp"
-            android:layout_height="30dp"
+            android:layout_height="40dp"
             android:layout_weight="1"
             android:gravity="center"
             android:textSize="12sp"
@@ -23,7 +23,7 @@
         <TextView
             android:id="@+id/patrol_task_item2"
             android:layout_width="70dp"
-            android:layout_height="30dp"
+            android:layout_height="40dp"
             android:layout_weight="1"
             android:gravity="center"
             android:textSize="12sp"
@@ -33,7 +33,7 @@
         <TextView
             android:id="@+id/patrol_task_item3"
             android:layout_width="70dp"
-            android:layout_height="30dp"
+            android:layout_height="40dp"
             android:layout_weight="1"
             android:gravity="center"
             android:textSize="12sp"
@@ -44,7 +44,7 @@
         <TextView
             android:id="@+id/patrol_task_item5"
             android:layout_width="70dp"
-            android:layout_height="30dp"
+            android:layout_height="40dp"
             android:layout_weight="1"
             android:gravity="center"
             android:textSize="12sp"

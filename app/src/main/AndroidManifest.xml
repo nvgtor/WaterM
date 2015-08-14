@@ -66,9 +66,6 @@
         <activity android:name=".activity.MainActivity">
 
         </activity>
-        <activity android:name=".activity.UnPatrolListActivity">
-
-        </activity>
 
         <activity
             android:name=".activity.PatrolMapDetailActivity"

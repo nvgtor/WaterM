@@ -5,7 +5,7 @@
               android:layout_height="match_parent">
 
     <RelativeLayout
-        android:id="@+id/id_map_point_device_detail"
+        android:id="@+id/id_map_marker_detail"
         android:layout_width="match_parent"
         android:background="#C0C0C0"
         android:layout_height="wrap_content"
@@ -256,15 +256,16 @@
                     android:inputType="textMultiLine" />
             </RelativeLayout>
 
-            <RelativeLayout
+            <LinearLayout
                 android:id="@+id/id_map_device_imgRecorder"
                 android:layout_width="match_parent"
+                android:layout_height="70dp"
                 android:layout_below="@+id/id_map_device_mid"
-                android:layout_height="50dp">
+                android:orientation="horizontal">
                 <LinearLayout
                     android:id="@+id/id_map_device_photo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
+                    android:layout_width="240dp"
+                    android:layout_height="70dp"
                     android:layout_marginLeft="5dp"
                     android:layout_marginStart="5dp"
                     android:layout_marginRight="5dp"
@@ -274,28 +275,28 @@
                     <ImageView
                         android:id="@+id/id_map_img_add_1"
                         android:layout_width="0dp"
-                        android:layout_height="50dp"
+                        android:layout_height="70dp"
                         android:layout_weight="1"
                         android:scaleType="fitXY"
                         android:src="@drawable/device_img_1"/>
                     <ImageView
                         android:id="@+id/id_map_img_add_2"
                         android:layout_width="0dp"
-                        android:layout_height="50dp"
+                        android:layout_height="70dp"
                         android:layout_weight="1"
                         android:scaleType="fitXY"
                         android:src="@drawable/device_img_2"/>
                     <ImageView
                         android:id="@+id/id_map_img_add_3"
                         android:layout_width="0dp"
-                        android:layout_height="50dp"
+                        android:layout_height="70dp"
                         android:layout_weight="1"
                         android:scaleType="fitXY"
                         android:src="@drawable/device_img_1"/>
                     <ImageView
                         android:id="@+id/id_map_img_add_4"
                         android:layout_width="0dp"
-                        android:layout_height="50dp"
+                        android:layout_height="70dp"
                         android:layout_weight="1"
                         android:scaleType="fitXY"
                         android:src="@drawable/device_img_2"/>
@@ -303,16 +304,14 @@
 
                 <ListView
                     android:id="@+id/id_device_recorder_list"
-                    android:layout_width="170dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true"
+                    android:layout_gravity="left"
                     android:divider="@null"
                     android:dividerHeight="10dp"
                     android:listSelector="#00000000"
                     android:cacheColorHint="#00000000"/>
-
-            </RelativeLayout>
+                </LinearLayout>
 
             <View
                 android:id="@+id/id_map_device_line_2"
@@ -333,18 +332,19 @@
                     android:gravity="center"
                     android:clickable="true"
                     android:layout_weight="1">
-                    <ImageView
-                        android:id="@+id/id_map_device_img_camera"
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
-                        android:src="@drawable/camera_input"/>
+                    <Button
+                        android:id="@+id/id_map_device_camera"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="4dp"
+                        android:background="@drawable/btn_pb_add_camera"/>
                     <TextView
                         android:id="@+id/id_map_device_tv_camera"
-                        android:layout_width="70dp"
+                        android:layout_width="60dp"
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:layout_marginTop="3dp"
-                        android:layout_below="@+id/id_map_device_img_camera"
+                        android:layout_below="@+id/id_map_device_camera"
                         android:text="拍照"
                         android:textSize="14sp"/>
                 </RelativeLayout>
@@ -355,43 +355,45 @@
                     android:gravity="center"
                     android:clickable="true"
                     android:layout_weight="1">
-                    <ImageView
-                        android:id="@+id/id_map_device_img_gallery"
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
-                        android:src="@drawable/gallery_img_input"/>
+                    <Button
+                        android:id="@+id/id_map_device_gallery"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="4dp"
+                        android:background="@drawable/btn_pb_add_pic"/>
                     <TextView
                         android:id="@+id/id_map_device_tv_gallery"
-                        android:layout_width="70dp"
+                        android:layout_width="60dp"
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:layout_marginTop="3dp"
-                        android:layout_below="@+id/id_map_device_img_gallery"
+                        android:layout_below="@+id/id_map_device_gallery"
                         android:text="相册"
                         android:textSize="14sp"/>
                 </RelativeLayout>
 
-                <com.water.nvgtor.watermanegement.view.AudioRecorderButton
+                <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:clickable="true"
                     android:layout_weight="1">
-                    <ImageView
-                        android:id="@+id/id_map_device_img_recorder"
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
-                        android:src="@drawable/recorder_in_img"/>
+                    <com.water.nvgtor.watermanegement.view.AudioRecorderButton
+                        android:id="@+id/id_map_device_microphone"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="4dp"
+                        android:background="@drawable/btn_pb_add_microphone"/>
                     <TextView
                         android:id="@+id/id_map_device_tv_recorder"
-                        android:layout_width="70dp"
+                        android:layout_width="60dp"
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:layout_marginTop="3dp"
-                        android:layout_below="@+id/id_map_device_img_recorder"
+                        android:layout_below="@+id/id_map_device_microphone"
                         android:text="录音"
                         android:textSize="14sp"/>
-                </com.water.nvgtor.watermanegement.view.AudioRecorderButton>
+                </RelativeLayout>
             </LinearLayout>
 
             <View
@@ -403,13 +405,13 @@
                 android:background="#ccc"/>
 
             <LinearLayout
-                android:id="@+id/id_map_point_for_btn"
+                android:id="@+id/id_map_device_btm_ly"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_below="@+id/id_map_device_line_3">
-                <com.water.nvgtor.watermanegement.view.AudioRecorderButton
-                    android:id="@+id/recorder_button"
+                <Button
+                    android:id="@+id/id_map_device_finish"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="50dp"
@@ -418,7 +420,7 @@
                     android:layout_marginBottom="7dp"
                     android:gravity="center"
                     android:padding="5dp"
-                    android:text="@string/str_recorder_normal"
+                    android:text="完成该设备巡检"
                     android:textColor="#727272"
                     android:background="@drawable/button_recorder_normal"
                     android:minHeight="0dp"/>

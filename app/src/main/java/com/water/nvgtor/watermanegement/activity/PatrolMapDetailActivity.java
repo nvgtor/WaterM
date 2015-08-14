@@ -3,15 +3,24 @@ package com.water.nvgtor.watermanegement.activity;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.AnimationDrawable;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -43,6 +52,11 @@ import com.water.nvgtor.watermanegement.tool.MyOrientationListener;
 import com.water.nvgtor.watermanegement.view.AudioRecorderButton;
 import com.water.nvgtor.watermanegement.view.MyMediaManager;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -81,6 +95,16 @@ public class PatrolMapDetailActivity extends Activity {
     private AudioRecorderButton mAudioRecorderButton;
     private View animView;
 
+    int REQUEST_CAMERA = 0, SELECT_FILE = 1;
+    private boolean[] imgState = {false,false,false,false};
+    //拍照
+    private Button btnCamera;
+    private Button btnGallery;
+    private ImageView img1;
+    private ImageView img2;
+    private ImageView img3;
+    private ImageView img4;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -89,6 +113,7 @@ public class PatrolMapDetailActivity extends Activity {
         // 注意该方法要再setContentView方法之前实现
         super.onCreate(savedInstanceState);
         SDKInitializer.initialize(getApplicationContext());
+
         setContentView(R.layout.patrol_map_detail);
 
         ActionBar actionBar = getActionBar();
@@ -106,6 +131,10 @@ public class PatrolMapDetailActivity extends Activity {
         initLocation();
 
         initMarker();
+
+        //拍照事件监听
+        takePhoto();
+
 
         mBaiduMap.setOnMarkerClickListener(new BaiduMap.OnMarkerClickListener() {
             @Override
@@ -161,7 +190,7 @@ public class PatrolMapDetailActivity extends Activity {
 
 
         mListView = (ListView) findViewById(R.id.id_device_recorder_list);
-        mAudioRecorderButton = (AudioRecorderButton) findViewById(R.id.recorder_button);
+        mAudioRecorderButton = (AudioRecorderButton) findViewById(R.id.id_map_device_microphone);
         mAudioRecorderButton.setAudioFinishRecorderListener(new AudioRecorderButton.AudioFinishRecorderListener() {
             @Override
             public void onFinish(float seconds, String filePath) {
@@ -203,8 +232,8 @@ public class PatrolMapDetailActivity extends Activity {
 
     private void initMarker()
     {
-        mMarker = BitmapDescriptorFactory.fromResource(R.drawable.maker);
-        mMarkerLy = (RelativeLayout) findViewById(R.id.id_map_point_device_detail);
+        mMarker = BitmapDescriptorFactory.fromResource(R.drawable.track_map_icon);
+        mMarkerLy = (RelativeLayout) findViewById(R.id.id_map_marker_detail);
     }
 
     private void initLocation(){
@@ -240,8 +269,131 @@ public class PatrolMapDetailActivity extends Activity {
         mBaiduMap = mMapView.getMap();
         MapStatusUpdate msu = MapStatusUpdateFactory.zoomTo(15.0f);
         mBaiduMap.setMapStatus(msu);
+
+        btnCamera = (Button)findViewById(R.id.id_map_device_camera);
+        btnGallery = (Button) findViewById(R.id.id_map_device_gallery);
+        img1 = (ImageView) findViewById(R.id.id_map_img_add_1);
+        img2 = (ImageView) findViewById(R.id.id_map_img_add_2);
+        img3 = (ImageView) findViewById(R.id.id_map_img_add_3);
+        img4 = (ImageView) findViewById(R.id.id_map_img_add_4);
+
     }
 
+    private void takePhoto(){
+        btnCamera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //btnCamera.setBackgroundResource(R.drawable.btn_posts_camera_l_1);
+                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(intent, REQUEST_CAMERA);
+            }
+        });
+
+        btnGallery.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //btnGallery.setBackgroundResource(R.drawable.btn_posts_photo_l_1);
+                Intent intent = new Intent(
+                        Intent.ACTION_PICK,
+                        android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                intent.setType("image/*");
+                startActivityForResult(
+                        Intent.createChooser(intent, "Select File"),
+                        SELECT_FILE);
+            }
+        });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode == Activity.RESULT_OK) {
+            if (requestCode == SELECT_FILE)
+                onSelectFromGalleryResult(data);
+            else if (requestCode == REQUEST_CAMERA)
+                onCaptureImageResult(data);
+        }
+    }
+    private void onCaptureImageResult(Intent data) {
+        Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        thumbnail.compress(Bitmap.CompressFormat.JPEG, 90, bytes);
+
+        File destination = new File(Environment.getExternalStorageDirectory(),
+                System.currentTimeMillis() + ".jpg");
+
+        FileOutputStream fo;
+        try {
+            destination.createNewFile();
+            fo = new FileOutputStream(destination);
+            fo.write(bytes.toByteArray());
+            fo.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        if (!imgState[0]){
+            img1.setImageBitmap(thumbnail);
+            imgState[0] = true;
+        }else if (!imgState[1]){
+            img2.setImageBitmap(thumbnail);
+            imgState[1] = true;
+        }else if (!imgState[2]){
+            img3.setImageBitmap(thumbnail);
+            imgState[2] = true;
+        }else if (!imgState[3]){
+            img4.setImageBitmap(thumbnail);
+            imgState[3] = true;
+        }else{
+            Toast.makeText(PatrolMapDetailActivity.this, "照片已满",Toast.LENGTH_SHORT).show();
+        }
+
+
+    }
+
+    @SuppressWarnings("deprecation")
+    private void onSelectFromGalleryResult(Intent data) {
+        Uri selectedImageUri = data.getData();
+        String[] projection = { MediaStore.MediaColumns.DATA };
+        Cursor cursor = managedQuery(selectedImageUri, projection, null, null,
+                null);
+        int column_index = cursor.getColumnIndexOrThrow(MediaStore.MediaColumns.DATA);
+        cursor.moveToFirst();
+
+        String selectedImagePath = cursor.getString(column_index);
+
+        Bitmap bm;
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = true;
+        BitmapFactory.decodeFile(selectedImagePath, options);
+        final int REQUIRED_SIZE = 200;
+        int scale = 1;
+        while (options.outWidth / scale / 2 >= REQUIRED_SIZE
+                && options.outHeight / scale / 2 >= REQUIRED_SIZE)
+            scale *= 2;
+        options.inSampleSize = scale;
+        options.inJustDecodeBounds = false;
+        bm = BitmapFactory.decodeFile(selectedImagePath, options);
+
+        if (!imgState[0]){
+            img1.setImageBitmap(bm);
+            imgState[0] = true;
+        }else if (!imgState[1]){
+            img2.setImageBitmap(bm);
+            imgState[1] = true;
+        }else if (!imgState[2]){
+            img3.setImageBitmap(bm);
+            imgState[2] = true;
+        }else if (!imgState[3]){
+            img4.setImageBitmap(bm);
+            imgState[3] = true;
+        }else{
+            Toast.makeText(PatrolMapDetailActivity.this, "照片已满",Toast.LENGTH_SHORT).show();
+        }
+    }
 
     @Override
     protected void onDestroy() {
