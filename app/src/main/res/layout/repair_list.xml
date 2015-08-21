@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <include layout="@layout/back_head_for_patrol"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#C0C0C0">
+        <TextView
+            android:id="@+id/id_repair_des"
+            android:layout_width="70dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:text="描述"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"/>
+        <TextView
+            android:id="@+id/id_repair_address"
+            android:layout_width="70dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:text="地点"/>
+        <TextView
+            android:id="@+id/id_repair_man"
+            android:layout_width="70dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:text="执行人"/>
+        <TextView
+            android:id="@+id/id_repair_deadline"
+            android:layout_width="70dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:text="截止时间"/>
+        <TextView
+            android:id="@+id/id_repair_opr"
+            android:layout_width="70dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:text="操作"
+            android:layout_marginRight="16dp"
+            android:layout_marginEnd="16dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+        <com.water.nvgtor.watermanegement.view.UnPatrolLoadListview
+            android:id="@+id/id_repair_task_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:cacheColorHint="#00000000"
+            android:divider="#A9A9A9"
+            android:dividerHeight="1dp">
+        </com.water.nvgtor.watermanegement.view.UnPatrolLoadListview>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/repair_line_1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#696969" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="0dp">
+
+        <Button
+            android:id="@+id/btn_task_repair"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:text="待办维修"
+            android:background="#20B2AA"
+            android:textSize="13sp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"/>
+        <Button
+            android:id="@+id/btn_task_repaired"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:text="已办维修"
+            android:background="#A9A9A9"
+            android:textSize="13sp"
+            android:layout_marginRight="16dp"
+            android:layout_marginEnd="16dp"/>
+    </LinearLayout>
+
+</LinearLayout>

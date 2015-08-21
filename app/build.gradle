@@ -28,4 +28,6 @@ dependencies {
     compile files('E:/example/WaterManegement/libraries/android-support-v7-appcompat.jar')
     compile files('E:/example/WaterManegement/libraries/BaiduLBS_Android.jar')
     compile files('E:/example/WaterManegement/libraries/httpmime-4.1.2.jar')
+    compile 'com.loopj.android:android-async-http:1.4.8'
+    compile files('E:/example/WaterManegement/libraries/gson-2.3.1.jar')
 }

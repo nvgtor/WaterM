@@ -47,7 +47,7 @@ public class MainActivity extends FragmentActivity{
             "巡检地图", "通讯录", "系统设置"};
     public int[] imgs = {R.drawable.zhoumoqunaer, R.drawable.icon_game_tab_class_n,
             R.drawable.icon_game_tab_hot_n, R.drawable.btn_live_speak_n, R.drawable.detail_normal_addr,
-            R.drawable.icon_me_group, R.drawable.atm};
+            R.drawable.walk, R.drawable.atm};
 
     /** 滑动区分类列表 */
     //private ArrayList<TabClassify> tabClassifies = new ArrayList<TabClassify>();
@@ -76,7 +76,12 @@ public class MainActivity extends FragmentActivity{
                     case 0:
                         Intent intent = new Intent(MainActivity.this, PatrolTaskListActivity.class);
                         startActivity(intent);
+                        break;
                         //overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
+                    case 1:
+                        Intent intent1 = new Intent(MainActivity.this, RepairListActivity.class);
+                        startActivity(intent1);
+                        break;
                 }
                 Toast.makeText(MainActivity.this, "you clicked " + position, Toast.LENGTH_SHORT).show();
             }

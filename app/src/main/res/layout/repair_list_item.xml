@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#FFFFFF">
+        <TextView
+            android:id="@+id/repair_task_item1"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="12sp"
+            android:textColor="#000000"
+            android:text="水表损坏"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            />
+        <TextView
+            android:id="@+id/repair_task_item2"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="10sp"
+            android:textColor="#000000"
+            android:text="高新七路距海油大道20m"
+            />
+        <TextView
+            android:id="@+id/repair_task_item3"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="12sp"
+            android:textColor="#000000"
+            android:text="张 二"
+
+            />
+        <TextView
+            android:id="@+id/repair_task_item4"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="12sp"
+            android:textColor="#000000"
+            android:text="2015-9-15"
+            />
+        <Button
+            android:id="@+id/repair_task_item5"
+            android:layout_width="70dp"
+            android:layout_height="20dp"
+            android:background="@drawable/btn_detail_start"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="10sp"
+            android:textColor="#000000"
+            android:text="详情"
+            android:layout_marginRight="16dp"
+            android:layout_marginEnd="16dp"
+            />
+    </LinearLayout>
+
+</LinearLayout>
